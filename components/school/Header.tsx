@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import EnquiryTrigger from "./enquiry/EnquiryTrigger";
 
 const navItems = [
   { label: "About", href: "#about", sectionId: "about" },
@@ -111,9 +112,7 @@ export default function Header() {
               <path d="m21 21-4.3-4.3m1.3-5.2a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z" />
             </svg>
           </button>
-          <a className="apply-button" href="#admissions" onClick={closeMenu}>
-            Apply Now
-          </a>
+          <EnquiryTrigger className="apply-button enquiry-nav-trigger">ENQUIRE NOW</EnquiryTrigger>
         </div>
       </nav>
     </header>

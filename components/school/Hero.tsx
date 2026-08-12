@@ -1,3 +1,5 @@
+import EnquiryTrigger from "./enquiry/EnquiryTrigger";
+
 export default function Hero() {
   return (
     <section className="hero" id="top" aria-labelledby="hero-title">
@@ -21,12 +23,7 @@ export default function Hero() {
             curiosity, confidence and purpose.
           </p>
           <div className="hero-actions reveal">
-            <a className="primary-cta" href="#admissions">
-              APPLY FOR ADMISSION
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 12h14m-6-6 6 6-6 6" />
-              </svg>
-            </a>
+            <EnquiryTrigger className="primary-cta">ENQUIRE NOW</EnquiryTrigger>
             <a className="secondary-cta" href="#admissions">
               BOOK CAMPUS VISIT
               <svg viewBox="0 0 24 24" aria-hidden="true">

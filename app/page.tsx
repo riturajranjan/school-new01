@@ -17,6 +17,7 @@ import AdmissionsCTA from "@/components/school/AdmissionsCTA";
 import Footer from "@/components/school/Footer";
 import Customizer from "@/components/school/Customizer";
 import SectionMotion from "@/components/school/SectionMotion";
+import EnquiryDialog from "@/components/school/enquiry/EnquiryDialog";
 
 export default function Home() {
   return (
@@ -42,6 +43,7 @@ export default function Home() {
       <Footer />
       <Customizer />
       <SectionMotion />
+      <EnquiryDialog />
     </>
   );
 }

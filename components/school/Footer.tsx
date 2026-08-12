@@ -15,10 +15,48 @@ const parentResources = [
 ];
 
 const socialLinks = [
-  { label: "Instagram", href: "https://www.instagram.com/" },
-  { label: "Facebook", href: "https://www.facebook.com/" },
-  { label: "YouTube", href: "https://www.youtube.com/" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/" },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/",
+    icon: (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="4" y="4" width="16" height="16" rx="5" />
+        <circle cx="12" cy="12" r="3.5" />
+        <path d="M17.5 6.8h.01" />
+      </svg>
+    ),
+  },
+  {
+    label: "Facebook",
+    href: "https://www.facebook.com/",
+    icon: (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M14 8h2V4h-2.5A4.5 4.5 0 0 0 9 8.5V11H7v4h2v5h4v-5h3l1-4h-4V8.8c0-.5.4-.8 1-.8Z" />
+      </svg>
+    ),
+  },
+  {
+    label: "YouTube",
+    href: "https://www.youtube.com/",
+    icon: (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M21 12s0-3.2-.4-4.7c-.2-.8-.9-1.5-1.7-1.7C17.4 5.2 12 5.2 12 5.2s-5.4 0-6.9.4c-.8.2-1.5.9-1.7 1.7C3 8.8 3 12 3 12s0 3.2.4 4.7c.2.8.9 1.5 1.7 1.7 1.5.4 6.9.4 6.9.4s5.4 0 6.9-.4c.8-.2 1.5-.9 1.7-1.7.4-1.5.4-4.7.4-4.7Z" />
+        <path d="m10 9 5 3-5 3Z" />
+      </svg>
+    ),
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/",
+    icon: (
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6.5 10V20" />
+        <path d="M6.5 6.5v.01" />
+        <path d="M11 20v-5.5a4 4 0 0 1 8 0V20" />
+        <path d="M11 10v10" />
+      </svg>
+    ),
+  },
 ];
 
 export default function Footer() {
@@ -110,7 +148,9 @@ export default function Footer() {
           <div className="footer-wordmark" aria-hidden="true">SARVOTTAM</div>
           <div className="footer-socials" aria-label="Social links">
             {socialLinks.map((link) => (
-              <a href={link.href} key={link.label}>{link.label}</a>
+              <a href={link.href} aria-label={link.label} target="_blank" rel="noopener noreferrer" key={link.label}>
+                {link.icon}
+              </a>
             ))}
           </div>
           <nav className="footer-legal" aria-label="Legal links">

@@ -1,3 +1,5 @@
+import EnquiryTrigger from "./enquiry/EnquiryTrigger";
+
 const journey = ["ENQUIRE", "VISIT", "APPLY", "INTERACTION", "ADMISSION"];
 
 export default function AdmissionsCTA() {
@@ -13,12 +15,7 @@ export default function AdmissionsCTA() {
           <p>Give Your Child A Stronger Tomorrow.</p>
 
           <div className="admissions-actions">
-            <a className="admissions-primary" href="#admissions">
-              APPLY NOW
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 12h14m-6-6 6 6-6 6" />
-              </svg>
-            </a>
+            <EnquiryTrigger className="admissions-primary">ENQUIRE NOW</EnquiryTrigger>
             <a className="admissions-secondary" href="#admissions">BOOK CAMPUS VISIT</a>
           </div>
         </div>

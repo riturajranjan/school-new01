@@ -1,8 +1,10 @@
+import EnquiryTrigger from "./enquiry/EnquiryTrigger";
+
 export default function QuickAccess() {
   return (
     <section className="quick-access" id="quick-access" aria-label="Quick access for parents">
       <div className="quick-access-inner">
-        <a className="quick-tile tile-orange" href="#admissions">
+        <EnquiryTrigger className="quick-tile tile-orange enquiry-quick-trigger">
           <span className="quick-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <path d="M7 11.5 10.2 15 17 8" />
@@ -10,7 +12,7 @@ export default function QuickAccess() {
             </svg>
           </span>
           <span>Apply Online</span>
-        </a>
+        </EnquiryTrigger>
         <a className="quick-tile tile-indigo" href="#admissions">
           <span className="quick-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
