@@ -126,7 +126,7 @@ export default function GradeExplorer() {
                 ))}
               </div>
 
-              <a className="stage-cta" href="#">
+              <a className="stage-cta" href="#academics">
                 Explore Stage
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M5 12h14m-6-6 6 6-6 6" />

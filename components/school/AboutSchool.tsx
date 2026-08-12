@@ -1,6 +1,6 @@
 export default function AboutSchool() {
   return (
-    <section className="about-school" id="about-school" aria-labelledby="about-title">
+    <section className="about-school" id="about" aria-labelledby="about-title">
       <div className="about-shape about-shape-one" aria-hidden="true"></div>
       <div className="about-shape about-shape-two" aria-hidden="true"></div>
 

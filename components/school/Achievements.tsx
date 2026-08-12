@@ -1,44 +1,110 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
 const achievements = [
   {
     className: "achievement-board",
     label: "Board Results",
-    number: "95%+",
+    target: 95,
+    suffix: "%+",
     note: "Sample demo benchmark",
     image: "grade",
   },
   {
     className: "achievement-olympiad",
     label: "Olympiads",
-    number: "28",
+    target: 28,
+    suffix: "",
     note: "Sample demo recognitions",
     image: "science",
   },
   {
     className: "achievement-sports",
     label: "Sports",
-    number: "12",
+    target: 12,
+    suffix: "",
     note: "Sample demo medals",
     image: "sports",
   },
   {
     className: "achievement-competitions",
     label: "Competitions",
-    number: "40+",
+    target: 40,
+    suffix: "+",
     note: "Sample demo participations",
     image: "debate",
   },
   {
     className: "achievement-admissions",
     label: "University Admissions",
-    number: "1:1",
+    target: 1,
+    suffix: ":1",
     note: "Sample demo counselling",
     image: "senior",
   },
 ];
 
-export default function Achievements() {
+function CounterNumber({ target, suffix, isActive }: { target: number; suffix: string; isActive: boolean }) {
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    if (!isActive) {
+      return;
+    }
+
+    let frame = 0;
+    const totalFrames = 56;
+
+    const tick = () => {
+      frame += 1;
+      const progress = 1 - Math.pow(1 - frame / totalFrames, 3);
+      setValue(Math.round(target * progress));
+
+      if (frame < totalFrames) {
+        requestAnimationFrame(tick);
+      }
+    };
+
+    requestAnimationFrame(tick);
+  }, [isActive, target]);
+
   return (
-    <section className="achievements-section" id="achievements" aria-labelledby="achievements-title">
+    <strong>
+      {value}
+      {suffix}
+    </strong>
+  );
+}
+
+export default function Achievements() {
+  const [isActive, setIsActive] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsActive(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.28 },
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section className="achievements-section" id="achievements" aria-labelledby="achievements-title" ref={sectionRef}>
       <div className="achievements-inner">
         <div className="achievements-header">
           <div>
@@ -57,7 +123,7 @@ export default function Achievements() {
               <div className={`achievement-image ${item.image}`} aria-hidden="true"></div>
               <div className="achievement-copy">
                 <span>{item.label}</span>
-                <strong>{item.number}</strong>
+                <CounterNumber target={item.target} suffix={item.suffix} isActive={isActive} />
                 <p>{item.note}</p>
               </div>
             </article>

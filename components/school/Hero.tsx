@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="hero" aria-labelledby="hero-title">
+    <section className="hero" id="top" aria-labelledby="hero-title">
       <div className="hero-bg-shape shape-indigo" aria-hidden="true"></div>
       <div className="hero-bg-shape shape-yellow" aria-hidden="true"></div>
       <div className="hero-bg-shape shape-teal" aria-hidden="true"></div>
@@ -21,13 +21,13 @@ export default function Hero() {
             curiosity, confidence and purpose.
           </p>
           <div className="hero-actions reveal">
-            <a className="primary-cta" href="#">
+            <a className="primary-cta" href="#admissions">
               APPLY FOR ADMISSION
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 12h14m-6-6 6 6-6 6" />
               </svg>
             </a>
-            <a className="secondary-cta" href="#">
+            <a className="secondary-cta" href="#admissions">
               BOOK CAMPUS VISIT
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 12h14m-6-6 6 6-6 6" />

@@ -54,7 +54,7 @@ export default function Academics() {
                 <span>{item.classes}</span>
                 <h3>{item.stage}</h3>
                 <p>{item.description}</p>
-                <a href="#">
+                <a href="#grade-explorer">
                   Explore
                   <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M5 12h14m-6-6 6 6-6 6" />

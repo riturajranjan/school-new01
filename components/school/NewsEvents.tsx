@@ -34,7 +34,7 @@ export default function NewsEvents() {
             <div className="section-kicker">NEWS &amp; EVENTS</div>
             <h2 id="events-title">What is happening on campus.</h2>
           </div>
-          <a href="#">
+          <a href="#news-events">
             View All
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M5 12h14m-6-6 6 6-6 6" />
@@ -50,7 +50,7 @@ export default function NewsEvents() {
                 <time>{event.date}</time>
                 <span>{event.category}</span>
                 <h3>{event.title}</h3>
-                <a href="#">Read More</a>
+                <a href="#news-events">Read More</a>
               </div>
             </article>
           ))}

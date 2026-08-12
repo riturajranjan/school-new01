@@ -13,13 +13,13 @@ export default function AdmissionsCTA() {
           <p>Give Your Child A Stronger Tomorrow.</p>
 
           <div className="admissions-actions">
-            <a className="admissions-primary" href="#">
+            <a className="admissions-primary" href="#admissions">
               APPLY NOW
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 12h14m-6-6 6 6-6 6" />
               </svg>
             </a>
-            <a className="admissions-secondary" href="#">BOOK CAMPUS VISIT</a>
+            <a className="admissions-secondary" href="#admissions">BOOK CAMPUS VISIT</a>
           </div>
         </div>
 
@@ -34,9 +34,9 @@ export default function AdmissionsCTA() {
           </div>
 
           <div className="admissions-contact">
-            <a href="#">WhatsApp</a>
-            <a href="#">Call</a>
-            <a href="#">Download Prospectus</a>
+            <a href="https://wa.me/911234567890">WhatsApp</a>
+            <a href="tel:+911234567890">Call</a>
+            <a href="#admissions">Download Prospectus</a>
           </div>
         </div>
       </div>

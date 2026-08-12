@@ -15,6 +15,8 @@ import Testimonials from "@/components/school/Testimonials";
 import FAQ from "@/components/school/FAQ";
 import AdmissionsCTA from "@/components/school/AdmissionsCTA";
 import Footer from "@/components/school/Footer";
+import Customizer from "@/components/school/Customizer";
+import SectionMotion from "@/components/school/SectionMotion";
 
 export default function Home() {
   return (
@@ -38,6 +40,8 @@ export default function Home() {
         <AdmissionsCTA />
       </main>
       <Footer />
+      <Customizer />
+      <SectionMotion />
     </>
   );
 }

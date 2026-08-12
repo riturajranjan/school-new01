@@ -2,7 +2,7 @@ export default function QuickAccess() {
   return (
     <section className="quick-access" id="quick-access" aria-label="Quick access for parents">
       <div className="quick-access-inner">
-        <a className="quick-tile tile-orange" href="#">
+        <a className="quick-tile tile-orange" href="#admissions">
           <span className="quick-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <path d="M7 11.5 10.2 15 17 8" />
@@ -11,7 +11,7 @@ export default function QuickAccess() {
           </span>
           <span>Apply Online</span>
         </a>
-        <a className="quick-tile tile-indigo" href="#">
+        <a className="quick-tile tile-indigo" href="#admissions">
           <span className="quick-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <path d="M7 7h10M7 12h10M7 17h6" />
@@ -20,7 +20,7 @@ export default function QuickAccess() {
           </span>
           <span>Fee Structure</span>
         </a>
-        <a className="quick-tile tile-yellow" href="#">
+        <a className="quick-tile tile-yellow" href="#news-events">
           <span className="quick-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <path d="M7 3v4M17 3v4M4 9h16" />
@@ -29,7 +29,7 @@ export default function QuickAccess() {
           </span>
           <span>Academic Calendar</span>
         </a>
-        <a className="quick-tile tile-teal" href="#">
+        <a className="quick-tile tile-teal" href="#contact">
           <span className="quick-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <path d="M4 16V7h11l4 4v5" />
@@ -38,7 +38,7 @@ export default function QuickAccess() {
           </span>
           <span>Transport</span>
         </a>
-        <a className="quick-tile tile-coral" href="#">
+        <a className="quick-tile tile-coral" href="#contact">
           <span className="quick-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
@@ -47,7 +47,7 @@ export default function QuickAccess() {
           </span>
           <span>Parent Portal</span>
         </a>
-        <a className="quick-tile tile-navy" href="#">
+        <a className="quick-tile tile-navy" href="#mandatory-disclosure">
           <span className="quick-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24">
               <path d="M8 6h8M8 10h8M8 14h5" />

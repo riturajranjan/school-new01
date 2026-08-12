@@ -106,7 +106,7 @@ export default function Facilities() {
             <span>Active Facility</span>
             <h3>{facility.label}</h3>
             <p>{facility.description}</p>
-            <a href="#">
+            <a href="#facilities">
               Explore
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 12h14m-6-6 6 6-6 6" />
