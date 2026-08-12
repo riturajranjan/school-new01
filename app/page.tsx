@@ -14,6 +14,7 @@ import NewsEvents from "@/components/school/NewsEvents";
 import Testimonials from "@/components/school/Testimonials";
 import FAQ from "@/components/school/FAQ";
 import AdmissionsCTA from "@/components/school/AdmissionsCTA";
+import Footer from "@/components/school/Footer";
 
 export default function Home() {
   return (
@@ -36,6 +37,7 @@ export default function Home() {
         <FAQ />
         <AdmissionsCTA />
       </main>
+      <Footer />
     </>
   );
 }
