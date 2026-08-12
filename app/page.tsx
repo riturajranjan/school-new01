@@ -11,6 +11,9 @@ import SeniorSecondary from "@/components/school/SeniorSecondary";
 import Achievements from "@/components/school/Achievements";
 import Faculty from "@/components/school/Faculty";
 import NewsEvents from "@/components/school/NewsEvents";
+import Testimonials from "@/components/school/Testimonials";
+import FAQ from "@/components/school/FAQ";
+import AdmissionsCTA from "@/components/school/AdmissionsCTA";
 
 export default function Home() {
   return (
@@ -29,6 +32,9 @@ export default function Home() {
         <Achievements />
         <Faculty />
         <NewsEvents />
+        <Testimonials />
+        <FAQ />
+        <AdmissionsCTA />
       </main>
     </>
   );
