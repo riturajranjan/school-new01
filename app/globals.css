@@ -3148,6 +3148,527 @@ h1 span:nth-child(3) {
   }
 }
 
+.student-life {
+  position: relative;
+  overflow: hidden;
+  padding: 88px 0 96px;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(244, 197, 66, 0.22), transparent 24%),
+    radial-gradient(circle at 88% 78%, rgba(33, 166, 161, 0.14), transparent 26%),
+    var(--cream);
+}
+
+.student-life-inner,
+.senior-inner {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.student-life-header {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.55fr);
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 34px;
+}
+
+.student-life-header h2,
+.senior-header h2 {
+  margin: 18px 0 0;
+  color: var(--deep-navy);
+  font-family: "Inter", Arial, sans-serif;
+  font-size: clamp(40px, 4.8vw, 72px);
+  line-height: 0.98;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.student-life-header p,
+.senior-header p {
+  margin: 20px 0 0;
+  color: rgba(24, 32, 42, 0.72);
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.65;
+}
+
+.life-gallery {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-auto-rows: 168px;
+  gap: 14px;
+}
+
+.life-tile {
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 28px;
+  background: var(--white);
+  box-shadow: 0 20px 54px rgba(16, 35, 63, 0.12);
+  isolation: isolate;
+  transition: transform 260ms ease, box-shadow 260ms ease;
+}
+
+.life-tile:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 30px 72px rgba(16, 35, 63, 0.18);
+}
+
+.life-wide {
+  grid-column: span 2;
+}
+
+.life-tall {
+  grid-row: span 2;
+}
+
+.life-sports,
+.life-robotics {
+  grid-column: span 2;
+}
+
+.life-music,
+.life-art,
+.life-debate,
+.life-trips,
+.life-events {
+  grid-column: span 1;
+}
+
+.life-clubs {
+  grid-column: span 2;
+}
+
+.life-image {
+  position: absolute;
+  inset: -4%;
+  background-image: url("/assets/student-life-strip.png");
+  background-size: 900% 100%;
+  background-position: 0% 50%;
+  background-repeat: no-repeat;
+  transition: transform 520ms ease, filter 320ms ease;
+}
+
+.life-tile:hover .life-image {
+  transform: translateY(-8px) scale(1.06);
+  filter: saturate(1.08);
+}
+
+.life-music .life-image {
+  background-position: 12.5% 50%;
+}
+
+.life-dance .life-image {
+  background-position: 25% 50%;
+}
+
+.life-art .life-image {
+  background-position: 37.5% 50%;
+}
+
+.life-robotics .life-image {
+  background-position: 50% 50%;
+}
+
+.life-debate .life-image {
+  background-position: 62.5% 50%;
+}
+
+.life-clubs .life-image {
+  background-position: 75% 50%;
+}
+
+.life-trips .life-image {
+  background-position: 87.5% 50%;
+}
+
+.life-events .life-image {
+  background-position: 100% 50%;
+}
+
+.life-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, transparent 30%, rgba(16, 35, 63, 0.68));
+}
+
+.life-tile::before {
+  content: "";
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  z-index: 2;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--sunshine-yellow);
+  box-shadow: 0 0 0 8px rgba(244, 197, 66, 0.18);
+}
+
+.life-music::before,
+.life-art::before,
+.life-events::before {
+  background: var(--coral);
+  box-shadow: 0 0 0 8px rgba(243, 111, 95, 0.16);
+}
+
+.life-robotics::before,
+.life-clubs::before,
+.life-trips::before {
+  background: var(--teal);
+  box-shadow: 0 0 0 8px rgba(33, 166, 161, 0.16);
+}
+
+.life-tile span {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 3;
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: 999px;
+  color: var(--deep-navy);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 14px 28px rgba(16, 35, 63, 0.13);
+  backdrop-filter: blur(14px);
+  font-size: 12px;
+  font-weight: 900;
+  transition: transform 240ms ease;
+}
+
+.life-tile:hover span {
+  transform: translateY(-5px);
+}
+
+.life-shape {
+  position: absolute;
+  pointer-events: none;
+}
+
+.life-shape-one {
+  width: 260px;
+  height: 220px;
+  right: -90px;
+  top: 130px;
+  border-radius: 52% 48% 62% 38% / 44% 58% 42% 56%;
+  background: rgba(244, 197, 66, 0.2);
+}
+
+.life-shape-two {
+  width: 190px;
+  height: 190px;
+  left: -70px;
+  bottom: 66px;
+  border-radius: 44% 56% 46% 54% / 54% 40% 60% 46%;
+  background: rgba(243, 111, 95, 0.14);
+}
+
+.senior-secondary {
+  position: relative;
+  overflow: hidden;
+  padding: 88px 0 98px;
+  color: var(--white);
+  background:
+    radial-gradient(circle at 88% 20%, rgba(244, 197, 66, 0.12), transparent 24%),
+    var(--deep-navy);
+}
+
+.senior-header {
+  max-width: 760px;
+}
+
+.senior-header .section-kicker {
+  color: var(--deep-navy);
+  background: var(--sunshine-yellow);
+}
+
+.senior-header h2 {
+  color: var(--white);
+}
+
+.senior-header p {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.stream-board {
+  position: absolute;
+  right: 20px;
+  top: 28px;
+  width: 300px;
+  height: 180px;
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+.stream-board::before,
+.stream-board::after,
+.stream-board span,
+.stream-board i,
+.stream-board b {
+  content: "";
+  position: absolute;
+  display: block;
+  background: rgba(244, 197, 66, 0.45);
+}
+
+.stream-board::before {
+  left: 20px;
+  right: 20px;
+  top: 50px;
+  height: 1px;
+}
+
+.stream-board::after {
+  left: 50px;
+  top: 18px;
+  bottom: 18px;
+  width: 1px;
+}
+
+.stream-board span {
+  width: 90px;
+  height: 1px;
+  right: 28px;
+  bottom: 48px;
+  transform: rotate(-24deg);
+  transform-origin: left;
+  animation: lineDrift 4s ease-in-out infinite alternate;
+}
+
+.stream-board i {
+  width: 9px;
+  height: 9px;
+  left: 46px;
+  top: 46px;
+  border-radius: 50%;
+}
+
+.stream-board b {
+  width: 9px;
+  height: 9px;
+  right: 110px;
+  bottom: 44px;
+  border-radius: 50%;
+}
+
+.stream-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.stream-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+  padding: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(16px);
+}
+
+.stream-card::before {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  right: -72px;
+  top: -72px;
+  border-radius: 50%;
+  background: rgba(244, 197, 66, 0.1);
+}
+
+.stream-line {
+  width: 100%;
+  height: 72px;
+  position: relative;
+  margin-bottom: 22px;
+}
+
+.stream-line::before,
+.stream-line::after {
+  content: "";
+  position: absolute;
+  background: var(--warm-orange);
+}
+
+.stream-line::before {
+  left: 0;
+  right: 20%;
+  top: 32px;
+  height: 2px;
+}
+
+.stream-line::after {
+  width: 11px;
+  height: 11px;
+  left: 0;
+  top: 28px;
+  border-radius: 50%;
+  box-shadow: 90px 0 0 var(--sunshine-yellow), 180px 0 0 rgba(244, 197, 66, 0.55);
+}
+
+.stream-commerce .stream-line::before {
+  background: var(--sunshine-yellow);
+}
+
+.stream-humanities .stream-line::before {
+  background: rgba(244, 197, 66, 0.62);
+}
+
+.stream-card h3 {
+  margin: 0;
+  color: var(--white);
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.stream-card dl,
+.stream-card dd {
+  margin: 0;
+}
+
+.stream-card dl {
+  display: grid;
+  gap: 16px;
+  margin-top: 26px;
+}
+
+.stream-card div {
+  min-width: 0;
+}
+
+.stream-card dt {
+  color: var(--sunshine-yellow);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.stream-card dd {
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.52;
+}
+
+@keyframes lineDrift {
+  to {
+    transform: translateX(-18px) rotate(-24deg);
+  }
+}
+
+@media (max-width: 1060px) {
+  .student-life-header {
+    grid-template-columns: 1fr;
+  }
+
+  .life-gallery {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .stream-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stream-card {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .student-life,
+  .senior-secondary {
+    padding: 54px 0 64px;
+  }
+
+  .student-life-inner,
+  .senior-inner {
+    width: calc(100% - 28px);
+  }
+
+  .student-life-header {
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+
+  .student-life-header h2,
+  .senior-header h2 {
+    font-size: 34px;
+    line-height: 1.02;
+  }
+
+  .student-life-header p,
+  .senior-header p {
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .life-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 150px;
+    gap: 10px;
+  }
+
+  .life-wide,
+  .life-sports,
+  .life-robotics,
+  .life-clubs {
+    grid-column: span 2;
+  }
+
+  .life-tall {
+    grid-row: span 1;
+  }
+
+  .life-tile {
+    border-radius: 22px;
+  }
+
+  .life-tile span {
+    min-height: 34px;
+    font-size: 11px;
+  }
+
+  .stream-board {
+    display: none;
+  }
+
+  .stream-grid {
+    gap: 12px;
+  }
+
+  .stream-card {
+    padding: 20px;
+    border-radius: 24px;
+  }
+
+  .stream-card h3 {
+    font-size: 29px;
+  }
+
+  .stream-card dl {
+    gap: 13px;
+    margin-top: 22px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
