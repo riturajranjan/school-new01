@@ -22,7 +22,11 @@ const sectionAnimationMap: Record<string, string> = {
 
 export default function SectionMotion() {
   useEffect(() => {
-    const sections = Array.from(document.querySelectorAll<HTMLElement>("section[id], footer[id]"));
+    // Sections migrated to Tailwind + Framer motion primitives opt out of
+    // the legacy reveal engine via data-no-reveal (Phase 2+).
+    const sections = Array.from(
+      document.querySelectorAll<HTMLElement>("section[id], footer[id]"),
+    ).filter((section) => section.dataset.noReveal === undefined);
 
     sections.forEach((section) => {
       section.dataset.reveal = sectionAnimationMap[section.id] ?? "text";

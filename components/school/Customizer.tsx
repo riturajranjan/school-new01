@@ -239,28 +239,15 @@ export default function Customizer() {
   const swatchStyle = (value: string) =>
     ({ "--swatch": value }) as CSSProperties;
 
+  // Opened from the header settings icon (and the mobile menu) via event.
+  useEffect(() => {
+    const open = () => setIsOpen(true);
+    window.addEventListener("school:open-customizer", open);
+    return () => window.removeEventListener("school:open-customizer", open);
+  }, []);
+
   return (
     <>
-      <button
-        type="button"
-        className={`customizer-trigger${isOpen ? " is-active" : ""}`}
-        aria-label="Open website customizer"
-        aria-expanded={isOpen}
-        aria-controls="site-customizer"
-        onClick={() => setIsOpen(true)}>
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M21 4h-7" />
-          <path d="M10 4H3" />
-          <path d="M21 12h-9" />
-          <path d="M8 12H3" />
-          <path d="M21 20h-5" />
-          <path d="M12 20H3" />
-          <path d="M14 2v4" />
-          <path d="M8 10v4" />
-          <path d="M16 18v4" />
-        </svg>
-      </button>
-
       <div
         className={`customizer-backdrop ${isOpen ? "is-open" : ""}`}
         onClick={() => setIsOpen(false)}></div>
