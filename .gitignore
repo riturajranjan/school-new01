@@ -9,3 +9,8 @@ dist/
 !.env.example
 
 .DS_Store
+
+# Generated / disposable
+*.tsbuildinfo
+AGENTS.md
+CLAUDE.md

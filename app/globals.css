@@ -11,6 +11,91 @@
   --header-height: 116px;
   --header-offset: 104px;
   --shadow: 0 24px 70px rgba(16, 35, 63, 0.16);
+
+  /* Design system tokens */
+  --font-display: "Inter", "Plus Jakarta Sans", Arial, sans-serif;
+  --font-body: "Plus Jakarta Sans", "Inter", Arial, sans-serif;
+
+  --school-navy: var(--deep-navy);
+  --school-purple: var(--royal-indigo);
+  --school-blue: color-mix(in srgb, var(--royal-indigo) 42%, var(--teal));
+  --school-teal: var(--teal);
+  --school-orange: var(--warm-orange);
+  --school-coral: var(--coral);
+  --school-yellow: var(--sunshine-yellow);
+  --school-canvas: var(--cream);
+  --school-surface: color-mix(in srgb, var(--white) 88%, var(--cream));
+  --school-surface-elevated: var(--white);
+  --school-border-subtle: rgba(16, 35, 63, 0.06);
+  --school-border: rgba(16, 35, 63, 0.1);
+  --school-border-strong: rgba(16, 35, 63, 0.16);
+  --school-text: var(--deep-navy);
+  --school-text-secondary: rgba(24, 32, 42, 0.74);
+  --school-text-muted: rgba(24, 32, 42, 0.58);
+
+  --text-display-xl: clamp(4.5rem, 5vw, 5.5rem);
+  --text-section-title: clamp(3.5rem, 4vw, 4.25rem);
+  --text-card-title: clamp(1.625rem, 1.9vw, 2rem);
+  --text-small-title: clamp(1.25rem, 1.5vw, 1.5rem);
+  --text-body-lg: clamp(1.0625rem, 1.2vw, 1.1875rem);
+  --text-body: clamp(0.9375rem, 1vw, 1.0625rem);
+  --text-small: 0.875rem;
+  --text-caption: 0.75rem;
+
+  --lh-display: 0.96;
+  --lh-heading: 1.02;
+  --lh-card: 1.08;
+  --lh-body: 1.56;
+  --ls-display: -0.04em;
+  --ls-heading: -0.03em;
+  --ls-label: 0.06em;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --section-space: clamp(4rem, 6.2vw, 6.5rem);
+  --section-space-compact: clamp(3rem, 5vw, 5rem);
+  --container-wide: min(100% - clamp(36px, 5vw, 72px), 1480px);
+  --container-normal: min(100% - clamp(36px, 5vw, 72px), 1360px);
+  --container-reading: min(100% - 40px, 840px);
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-2xl: 40px;
+  --radius-pill: 999px;
+
+  --shadow-xs: 0 8px 18px rgba(16, 35, 63, 0.07);
+  --shadow-sm: 0 12px 28px rgba(16, 35, 63, 0.08);
+  --shadow-md: 0 20px 48px rgba(16, 35, 63, 0.1);
+  --shadow-lg: 0 28px 72px rgba(16, 35, 63, 0.14);
+  --shadow-float: 0 34px 90px rgba(16, 35, 63, 0.18);
+
+  --gradient-primary: linear-gradient(135deg, var(--royal-indigo), var(--teal));
+  --gradient-orange: linear-gradient(135deg, var(--sunshine-yellow), var(--warm-orange) 62%, var(--coral));
+  --gradient-teal: linear-gradient(135deg, color-mix(in srgb, var(--teal) 82%, var(--white)), var(--teal));
+  --gradient-purple: linear-gradient(135deg, color-mix(in srgb, var(--royal-indigo) 82%, var(--white)), var(--royal-indigo));
+  --gradient-blue: linear-gradient(135deg, color-mix(in srgb, var(--royal-indigo) 40%, var(--teal)), var(--royal-indigo));
+  --gradient-dark: linear-gradient(145deg, var(--deep-navy), color-mix(in srgb, var(--deep-navy) 84%, black));
+
+  --glass-light: rgba(255, 255, 255, 0.72);
+  --glass-dark: rgba(16, 35, 63, 0.58);
+  --glass-blur: 18px;
+
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-fast: 180ms;
+  --motion-normal: 320ms;
+  --motion-slow: 520ms;
 }
 
 * {
@@ -10160,6 +10245,486 @@ footer[data-reveal].is-visible p {
       12px !important;
   }
 
+}
+
+
+/* =========================================================
+   DESIGN SYSTEM NORMALIZATION LAYER
+   Token-driven container / spacing / type / card / CTA
+   normalization + responsive polish. Kept last so it wins
+   the cascade over base component styles above.
+========================================================= */
+
+.hero-inner,
+.quick-access-inner,
+.grade-inner,
+.about-inner,
+.academics-inner,
+.learning-inner,
+.facilities-inner,
+.student-life-inner,
+.senior-inner,
+.achievements-inner,
+.faculty-inner,
+.events-inner,
+.testimonials-inner,
+.faq-inner,
+.admissions-inner,
+.footer-inner {
+  width: var(--container-wide);
+}
+
+.achievements-inner,
+.faculty-inner,
+.events-inner,
+.testimonials-inner,
+.faq-inner,
+.admissions-inner {
+  max-width: 1360px;
+}
+
+.about-school,
+.learning-approach,
+.student-life,
+.senior-secondary,
+.achievements-section,
+.faculty-section,
+.news-events,
+.testimonials-section,
+.faq-section {
+  padding-block: var(--section-space);
+}
+
+.quick-access,
+.academics-section,
+.facilities-section {
+  padding-block: var(--section-space-compact);
+}
+
+.section-kicker,
+.academics-section .section-kicker,
+.grade-explorer .section-kicker,
+.senior-header .section-kicker,
+.facilities-section .section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(91, 75, 219, 0.13);
+  color: var(--school-purple);
+  background: var(--school-surface);
+  box-shadow: var(--shadow-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  line-height: 1;
+}
+
+.kicker-icon,
+.facility-kicker-icon,
+.academics-section .kicker-icon {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+}
+
+.about-copy h2,
+.academics-heading h2,
+.learning-copy h2,
+.facilities-copy h2,
+.student-life-heading h2,
+.senior-header h2,
+.achievements-heading h2,
+.faculty-inner > h2,
+.events-heading h2,
+.testimonial-copy h2,
+.faq-heading h2,
+.admissions-copy h2 {
+  font-family: var(--font-display);
+  color: var(--school-text);
+  font-size: var(--text-section-title);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+  font-weight: 800;
+}
+
+.hero-text,
+.hero-text h1,
+.stage-left h2 {
+  font-family: var(--font-display);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+}
+
+.about-copy p,
+.academics-intro p,
+.learning-copy p,
+.facilities-copy p,
+.student-life-heading p,
+.senior-header p,
+.achievements-heading p,
+.events-heading p,
+.testimonial-copy p,
+.faq-heading p {
+  color: var(--school-text-secondary);
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  line-height: var(--lh-body);
+  font-weight: 500;
+}
+
+.academic-copy h3,
+.facility-glass h3,
+.learning-feature h3,
+.student-life-copy h3,
+.stream-card h3,
+.achievement-copy h3,
+.teacher-card h3,
+.event-card h3,
+.testimonial-quote-card h3,
+.faq-question h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-card-title);
+  line-height: var(--lh-card);
+  letter-spacing: -0.025em;
+  font-weight: 800;
+}
+
+.apply-button,
+.primary-cta,
+.secondary-cta,
+.academic-copy a,
+.facility-glass a,
+.learning-feature a,
+.event-card a,
+.admissions-actions a,
+.footer-map-card a,
+.footer-disclosure a,
+.journey-cta {
+  min-height: 42px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: 0;
+  transition: transform var(--motion-fast) var(--ease-premium),
+    box-shadow var(--motion-fast) var(--ease-premium),
+    background var(--motion-fast) var(--ease-premium);
+}
+
+.primary-cta,
+.apply-button,
+.facility-glass a,
+.academic-copy a {
+  box-shadow: var(--shadow-sm);
+}
+
+.apply-button:hover,
+.primary-cta:hover,
+.secondary-cta:hover,
+.academic-copy a:hover,
+.facility-glass a:hover,
+.learning-feature a:hover,
+.event-card a:hover {
+  transform: translateY(-2px);
+}
+
+.primary-cta svg,
+.secondary-cta svg,
+.apply-button svg,
+.academic-copy a svg,
+.facility-glass a svg,
+.event-card a svg {
+  width: 18px;
+  height: 18px;
+  transition: transform var(--motion-fast) var(--ease-premium);
+}
+
+.primary-cta:hover svg,
+.secondary-cta:hover svg,
+.apply-button:hover svg,
+.academic-copy a:hover svg,
+.facility-glass a:hover svg,
+.event-card a:hover svg {
+  transform: translate(3px);
+}
+
+.quick-tile,
+.academic-card,
+.learning-support,
+.facility-tab,
+.stream-card,
+.achievement-item,
+.teacher-card,
+.event-card,
+.testimonial-quote-card,
+.faq-item {
+  border-color: var(--school-border-subtle);
+  box-shadow: var(--shadow-md);
+}
+
+.academic-card,
+.learning-feature,
+.facility-active-card,
+.teacher-card,
+.event-card,
+.testimonial-quote-card {
+  transition: transform var(--motion-normal) var(--ease-premium),
+    box-shadow var(--motion-normal) var(--ease-premium),
+    border-color var(--motion-fast) var(--ease-premium);
+}
+
+.quick-tile,
+.learning-support,
+.teacher-card,
+.event-card,
+.faq-item {
+  border-radius: var(--radius-lg);
+}
+
+.stage-tab,
+.facility-tab,
+.academic-badge,
+.facility-glass span,
+.stage-content .stage-badge,
+.stream-card span,
+.event-category,
+.achievement-label {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.academic-icon,
+.facility-tab-icon,
+.learning-support svg,
+.academics-value-strip svg,
+.footer-socials a svg {
+  flex-shrink: 0;
+  width: auto;
+}
+
+.academic-pre {
+  --stage-accent: var(--warm-orange);
+  --stage-accent-2: var(--sunshine-yellow);
+}
+
+.academic-primary {
+  --stage-accent: var(--teal);
+  --stage-accent-2: var(--warm-orange);
+}
+
+.academic-middle {
+  --stage-accent: var(--royal-indigo);
+  --stage-accent-2: var(--teal);
+}
+
+.academic-secondary {
+  --stage-accent: var(--deep-navy);
+  --stage-accent-2: var(--warm-orange);
+}
+
+.academic-senior {
+  --stage-accent: var(--deep-navy);
+  --stage-accent-2: var(--sunshine-yellow);
+}
+
+html[data-theme="dark"] .section-kicker {
+  color: var(--cream);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+@media (max-width: 1180px) {
+  .utility-inner,
+  .navbar {
+    width: min(100% - 36px, 1180px);
+  }
+
+  .navbar {
+    gap: var(--space-3);
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  .brand {
+    gap: 10px;
+    min-width: 188px;
+  }
+
+  .brand strong {
+    font-size: 13px;
+  }
+
+  .nav-links {
+    justify-content: center;
+    gap: var(--space-2);
+    min-width: 0;
+    font-size: 11.5px;
+  }
+
+  .nav-actions {
+    gap: var(--space-2);
+  }
+
+  .search-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .apply-button {
+    min-height: 40px;
+    padding-inline: 13px;
+    font-size: 11px;
+  }
+
+  .enquiry-nav-trigger span {
+    display: none;
+  }
+
+  .hero-inner,
+  .quick-access-inner,
+  .grade-inner,
+  .about-inner,
+  .academics-inner,
+  .learning-inner,
+  .facilities-inner,
+  .student-life-inner,
+  .senior-inner,
+  .achievements-inner,
+  .faculty-inner,
+  .events-inner,
+  .testimonials-inner,
+  .faq-inner,
+  .admissions-inner,
+  .footer-inner {
+    width: min(100% - 56px, 1180px);
+  }
+
+  .about-school,
+  .learning-approach,
+  .student-life,
+  .senior-secondary,
+  .achievements-section,
+  .faculty-section,
+  .news-events,
+  .testimonials-section,
+  .faq-section {
+    padding-block: clamp(4.5rem, 7vw, 5.75rem);
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --text-display-xl: clamp(2.75rem, 12vw, 3.5rem);
+    --text-section-title: clamp(2.375rem, 10.8vw, 2.875rem);
+    --text-card-title: clamp(1.5rem, 7.2vw, 1.75rem);
+    --text-body-lg: clamp(1rem, 4.2vw, 1.0625rem);
+    --section-space: clamp(4rem, 13vw, 5rem);
+    --section-space-compact: clamp(3.25rem, 11vw, 4rem);
+  }
+
+  .hero-inner,
+  .quick-access-inner,
+  .grade-inner,
+  .about-inner,
+  .academics-inner,
+  .learning-inner,
+  .facilities-inner,
+  .student-life-inner,
+  .senior-inner,
+  .achievements-inner,
+  .faculty-inner,
+  .events-inner,
+  .testimonials-inner,
+  .faq-inner,
+  .admissions-inner,
+  .footer-inner {
+    width: min(100% - 40px, 430px);
+  }
+
+  .section-kicker,
+  .academics-section .section-kicker,
+  .grade-explorer .section-kicker,
+  .senior-header .section-kicker,
+  .facilities-section .section-kicker {
+    min-height: 38px;
+    padding-inline: 14px;
+    font-size: 11px;
+  }
+
+  .about-copy h2,
+  .academics-heading h2,
+  .learning-copy h2,
+  .facilities-copy h2,
+  .student-life-heading h2,
+  .senior-header h2,
+  .achievements-heading h2,
+  .faculty-inner > h2,
+  .events-heading h2,
+  .testimonial-copy h2,
+  .faq-heading h2 {
+    line-height: 1;
+  }
+
+  .facilities-copy,
+  .facilities-copy h2,
+  .facilities-copy p {
+    max-width: 100%;
+  }
+
+  .facilities-copy h2,
+  .facilities-copy p {
+    overflow-wrap: anywhere;
+  }
+
+  .about-copy p,
+  .academics-intro p,
+  .learning-copy p,
+  .facilities-copy p,
+  .student-life-heading p,
+  .senior-header p,
+  .achievements-heading p,
+  .events-heading p,
+  .testimonial-copy p,
+  .faq-heading p {
+    font-size: var(--text-body-lg);
+    line-height: 1.52;
+  }
+
+  .quick-grid,
+  .learning-supports,
+  .events-grid,
+  .faculty-grid {
+    gap: var(--space-4);
+  }
+
+  .customizer-trigger {
+    right: max(12px, env(safe-area-inset-right));
+    bottom: calc(14px + env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 374px) {
+  .hero-inner,
+  .quick-access-inner,
+  .grade-inner,
+  .about-inner,
+  .academics-inner,
+  .learning-inner,
+  .facilities-inner,
+  .student-life-inner,
+  .senior-inner,
+  .achievements-inner,
+  .faculty-inner,
+  .events-inner,
+  .testimonials-inner,
+  .faq-inner,
+  .admissions-inner,
+  .footer-inner {
+    width: calc(100% - 36px);
+  }
 }
 
 
