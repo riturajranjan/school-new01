@@ -1,0 +1,4 @@
+# unrs-resolver's native build is not required — ESLint (import
+# resolution) and the Next build both pass without it.
+allowBuilds:
+  unrs-resolver: false

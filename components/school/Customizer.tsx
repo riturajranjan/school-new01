@@ -55,14 +55,16 @@ const colorChoices: Choice[] = [
   { id: "custom", label: "Custom" },
 ];
 
+// Approved brand palette — single source of truth, kept in sync with
+// app/brand.css so runtime Customizer values match the base stylesheet.
 const colorParts = {
-  navy: ["10", "23", "3F"],
-  indigo: ["5B", "4B", "DB"],
-  orange: ["F2", "8C", "28"],
-  yellow: ["F4", "C5", "42"],
-  teal: ["21", "A6", "A1"],
-  coral: ["F3", "6F", "5F"],
-  cream: ["FF", "F8", "EE"],
+  navy: ["0B", "23", "45"],
+  indigo: ["5C", "4A", "E4"],
+  orange: ["FF", "8A", "32"],
+  yellow: ["FF", "C8", "3D"],
+  teal: ["20", "AA", "A5"],
+  coral: ["FF", "6D", "5F"],
+  cream: ["FF", "F9", "F0"],
   white: ["FF", "FF", "FF"],
   text: ["18", "20", "2A"],
 };

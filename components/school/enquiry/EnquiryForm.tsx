@@ -256,7 +256,7 @@ export default function EnquiryForm({ onSuccess }: { onSuccess: () => void }) {
       </div>
 
       <label className="field message-field">
-        <span>Anything you'd like us to know?</span>
+        <span>Anything you&apos;d like us to know?</span>
         <textarea
           value={values.message}
           onChange={(event) => updateValue("message", event.target.value)}

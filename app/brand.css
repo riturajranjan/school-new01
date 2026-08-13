@@ -1,0 +1,62 @@
+/* =========================================================
+   BRAND LAYER  (Phase 1 foundation) — imported LAST.
+   Single source of truth for the approved palette, academic
+   stage tokens, unified radius scale and font wiring.
+   Overrides the legacy globals.css :root palette WITHOUT
+   editing that file, so every existing section re-skins to
+   the approved brand automatically. The Customizer sets the
+   same variables inline at runtime (higher priority), so
+   live theming keeps working.
+========================================================= */
+
+:root {
+  /* --- Approved palette (single source of truth) --- */
+  --deep-navy: #0b2345;
+  --royal-indigo: #5c4ae4;
+  --academic-blue: #3486d3;
+  --teal: #20aaa5;
+  --warm-orange: #ff8a32;
+  --coral: #ff6d5f;
+  --sunshine-yellow: #ffc83d;
+  --cream: #fff9f0;
+  --soft-cream: #fff4e5;
+  --white: #ffffff;
+
+  /* Secondary text from the approved palette; keep --dark-text
+     (primary body/heading ink) as the existing deep value. */
+  --school-text-secondary: #536078;
+
+  /* --- Academic stage tokens (single source of truth) ---
+     Consumed by GradeExplorer, Academics and all future
+     stage-related UI. Corrected per the mandated mapping:
+     Secondary -> Coral, Senior Secondary -> Academic Blue. */
+  --stage-pre: var(--warm-orange);
+  --stage-pre-2: var(--sunshine-yellow);
+  --stage-primary: var(--teal);
+  --stage-middle: var(--royal-indigo);
+  --stage-secondary: var(--coral);
+  --stage-senior: var(--academic-blue);
+
+  /* --- Unified radius scale (12 / 18 / 24 / 32 / 40 / pill) ---
+     Reasserted here so both Tailwind utilities and legacy CSS
+     share one scale. (Shifts legacy sm 10->12, md 16->18 by
+     <=2px; intentional unification, lg/xl/2xl unchanged.) */
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-2xl: 40px;
+  --radius-pill: 999px;
+
+  /* --- Fonts: prefer self-hosted next/font, then legacy family
+     names (still served by the temporary Google <link> shim in
+     layout.tsx until Phase 8), then system fallback. --- */
+  --font-display: var(--font-display-next), "Inter", system-ui, -apple-system,
+    "Segoe UI", Arial, sans-serif;
+  --font-body: var(--font-body-next), "Plus Jakarta Sans", system-ui,
+    -apple-system, "Segoe UI", Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+}

@@ -108,7 +108,7 @@ export default function EnquiryDialog() {
             <span>ADMISSIONS</span>
             <strong>2026–27</strong>
             <h2>
-              Let's Find the
+              Let&apos;s Find the
               <br />
               Right Learning Path.
             </h2>
