@@ -90,7 +90,10 @@ function validate(values: EnquiryValues) {
     errors.academicYear = "Academic year is required.";
   }
 
-  if (values.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) {
+  if (
+    values.email.trim() &&
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())
+  ) {
     errors.email = "Enter a valid email address.";
   }
 
@@ -125,10 +128,14 @@ export default function EnquiryForm({ onSuccess }: { onSuccess: () => void }) {
             value={values.parentName}
             onChange={(event) => updateValue("parentName", event.target.value)}
             aria-invalid={Boolean(errors.parentName)}
-            aria-describedby={errors.parentName ? "parentName-error" : undefined}
+            aria-describedby={
+              errors.parentName ? "parentName-error" : undefined
+            }
             autoComplete="name"
           />
-          {errors.parentName && <em id="parentName-error">{errors.parentName}</em>}
+          {errors.parentName && (
+            <em id="parentName-error">{errors.parentName}</em>
+          )}
         </label>
 
         <label className="field">
@@ -167,59 +174,78 @@ export default function EnquiryForm({ onSuccess }: { onSuccess: () => void }) {
             value={values.studentName}
             onChange={(event) => updateValue("studentName", event.target.value)}
             aria-invalid={Boolean(errors.studentName)}
-            aria-describedby={errors.studentName ? "studentName-error" : undefined}
+            aria-describedby={
+              errors.studentName ? "studentName-error" : undefined
+            }
             autoComplete="off"
           />
-          {errors.studentName && <em id="studentName-error">{errors.studentName}</em>}
+          {errors.studentName && (
+            <em id="studentName-error">{errors.studentName}</em>
+          )}
         </label>
       </div>
-
-      <fieldset className="choice-field" aria-describedby={errors.admissionFor ? "admissionFor-error" : undefined}>
-        <legend>Admission For *</legend>
-        <div className="stage-choice-grid">
-          {admissionOptions.map((option) => (
-            <label className={values.admissionFor === option ? "is-selected" : ""} key={option}>
-              <input
-                type="radio"
-                name="admissionFor"
-                value={option}
-                checked={values.admissionFor === option}
-                onChange={(event) => updateValue("admissionFor", event.target.value)}
-              />
-              <span>{option}</span>
-            </label>
-          ))}
-        </div>
-        {errors.admissionFor && <em id="admissionFor-error">{errors.admissionFor}</em>}
-      </fieldset>
-
       <div className="form-grid compact-grid">
+        <label className="field">
+          <span>Admission For *</span>
+          <select
+            value={values.admissionFor}
+            onChange={(event) =>
+              updateValue("admissionFor", event.target.value)
+            }
+            aria-invalid={Boolean(errors.admissionFor)}
+            aria-describedby={
+              errors.admissionFor ? "admissionFor-error" : undefined
+            }>
+            {admissionOptions.map((item) => (
+              <option value={item} key={item}>
+                {item}
+              </option>
+            ))}
+          </select>
+          {errors.admissionFor && (
+            <em id="admissionFor-error">{errors.admissionFor}</em>
+          )}
+        </label>
+
         <label className="field">
           <span>Academic Year *</span>
           <select
             value={values.academicYear}
-            onChange={(event) => updateValue("academicYear", event.target.value)}
+            onChange={(event) =>
+              updateValue("academicYear", event.target.value)
+            }
             aria-invalid={Boolean(errors.academicYear)}
-            aria-describedby={errors.academicYear ? "academicYear-error" : undefined}
-          >
+            aria-describedby={
+              errors.academicYear ? "academicYear-error" : undefined
+            }>
             {academicYears.map((year) => (
-              <option value={year} key={year}>{year}</option>
+              <option value={year} key={year}>
+                {year}
+              </option>
             ))}
           </select>
-          {errors.academicYear && <em id="academicYear-error">{errors.academicYear}</em>}
+          {errors.academicYear && (
+            <em id="academicYear-error">{errors.academicYear}</em>
+          )}
         </label>
 
         <fieldset className="contact-method">
           <legend>Preferred Contact Method</legend>
-          <div>
+          <div className="contact-method-options">
             {contactMethods.map((method) => (
-              <label className={values.contactMethod === method.label ? "is-selected" : ""} key={method.label}>
+              <label
+                className={
+                  values.contactMethod === method.label ? "is-selected" : ""
+                }
+                key={method.label}>
                 <input
                   type="radio"
                   name="contactMethod"
                   value={method.label}
                   checked={values.contactMethod === method.label}
-                  onChange={(event) => updateValue("contactMethod", event.target.value)}
+                  onChange={(event) =>
+                    updateValue("contactMethod", event.target.value)
+                  }
                 />
                 {method.icon}
                 <span>{method.label}</span>
@@ -244,17 +270,6 @@ export default function EnquiryForm({ onSuccess }: { onSuccess: () => void }) {
           <path d="M5 12h14m-6-6 6 6-6 6" />
         </svg>
       </button>
-
-      <div className="enquiry-alternatives">
-        <span>Prefer speaking with us?</span>
-        <button type="button" disabled>CALL ADMISSIONS</button>
-        <button type="button" disabled>CHAT ON WHATSAPP</button>
-        <small>Contact destinations will be enabled once official admissions details are configured.</small>
-      </div>
-
-      <p className="privacy-copy">
-        By submitting this enquiry, you agree to be contacted regarding admissions.
-      </p>
     </form>
   );
 }
