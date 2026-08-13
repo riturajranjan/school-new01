@@ -129,7 +129,7 @@ export default function QuickAccess() {
       data-no-reveal
       className="relative z-10 -mt-6 pb-14 lg:-mt-12 lg:pb-20"
     >
-      <div className="mx-auto w-full max-w-normal px-5 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-wide px-5 sm:px-6 lg:px-8">
         <Reveal y={20}>
           <div className="rounded-[28px] border border-navy/8 bg-white/95 p-3 shadow-card backdrop-blur-sm sm:p-4">
             <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-3 sm:gap-2 xl:grid-cols-6 xl:divide-x xl:divide-navy/8">
