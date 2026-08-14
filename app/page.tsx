@@ -7,7 +7,6 @@ import Academics from "@/components/school/Academics";
 import LearningApproach from "@/components/school/LearningApproach";
 import Facilities from "@/components/school/Facilities";
 import StudentLife from "@/components/school/StudentLife";
-import SeniorSecondary from "@/components/school/SeniorSecondary";
 import Achievements from "@/components/school/Achievements";
 import Faculty from "@/components/school/Faculty";
 import NewsEvents from "@/components/school/NewsEvents";
@@ -18,6 +17,7 @@ import Footer from "@/components/school/Footer";
 import Customizer from "@/components/school/Customizer";
 import SectionMotion from "@/components/school/SectionMotion";
 import EnquiryDialog from "@/components/school/enquiry/EnquiryDialog";
+import { SectionDivider } from "@/components/ui/SectionDivider";
 
 export default function Home() {
   return (
@@ -29,10 +29,12 @@ export default function Home() {
         <GradeExplorer />
         <AboutSchool />
         <Academics />
+        <div className="bg-white">
+          <SectionDivider variant="wave" className="text-soft-cream" />
+        </div>
         <LearningApproach />
         <Facilities />
         <StudentLife />
-        <SeniorSecondary />
         <Achievements />
         <Faculty />
         <NewsEvents />

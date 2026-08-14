@@ -1,223 +1,140 @@
-const academicStages = [
-  {
-    className: "academic-pre",
-    stage: "Pre-Primary",
-    classes: "Nursery–KG",
-    description:
-      "Playful discovery, language readiness and early numeracy in warm, expressive classrooms.",
-    icon: (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <rect x="3" y="8" width="7" height="7" rx="1" />
-        <rect x="14" y="8" width="7" height="7" rx="1" />
-        <rect x="8.5" y="2.5" width="7" height="7" rx="1" />
-        <path d="M6.5 11.5h0M17.5 11.5h0M12 6h0" />
-      </svg>
-    ),
-  },
-  {
-    className: "academic-primary",
-    stage: "Primary",
-    classes: "Class 1–5",
-    description:
-      "Strong foundations through reading, inquiry, projects and confident communication.",
-    icon: (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M3 5.5c3-1.3 6-.8 9 1.1v12c-3-1.8-6-2.3-9-1z" />
-        <path d="M21 5.5c-3-1.3-6-.8-9 1.1v12c3-1.8 6-2.3 9-1z" />
-      </svg>
-    ),
-  },
-  {
-    className: "academic-middle",
-    stage: "Middle",
-    classes: "Class 6–8",
-    description:
-      "Collaborative STEM, research habits and independent thinking across subjects.",
-    icon: (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M9 3h4" />
-        <path d="m10 3 1 4-4 3 2 3" />
-        <path d="M8 13h7" />
-        <path d="M6 17h11" />
-        <path d="M8 21h9" />
-        <path d="M14 7l3 3" />
-      </svg>
-    ),
-  },
-  {
-    className: "academic-secondary",
-    stage: "Secondary",
-    classes: "Class 9–10",
-    description:
-      "Focused CBSE preparation with labs, mentoring and balanced growth.",
-    icon: (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="m3 8 9-5 9 5-9 5z" />
-        <path d="M6 11v6l6 3 6-3v-6" />
-        <path d="M21 8v6" />
-      </svg>
-    ),
-  },
-  {
-    className: "academic-senior",
-    stage: "Senior Secondary",
-    classes: "Class 11–12",
-    description:
-      "Stream guidance, university readiness and advanced future-facing projects.",
-    icon: (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M4 20V11h4v9" />
-        <path d="M10 20V7h4v13" />
-        <path d="M16 20V3h4v17" />
-        <path d="m4 8 5-3 4 1 7-4" />
-      </svg>
-    ),
-  },
-];
+import Image from "next/image";
+import { stages, seniorStreams } from "./stage-data";
+import { BookStack, GradCap, Compass, PaperPlane, Plant, Sphere } from "./edu-objects";
+import { Reveal } from "../motion/Reveal";
+import { StaggerGroup, StaggerItem } from "../motion/StaggerGroup";
+import { FloatingObject } from "../motion/FloatingObject";
+import { cn } from "../ui/cn";
+
+const arrow = (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden>
+    <path d="M5 12h14m-6-6 6 6-6 6" />
+  </svg>
+);
 
 export default function Academics() {
   return (
     <section
-      className="academics-section"
       id="academics"
-      aria-labelledby="academics-title">
-      <div className="academics-inner">
-        <div className="academics-header">
-          <div className="academics-heading">
-            <div className="section-kicker">
-              <span className="kicker-icon">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M3 5.5c3-1.3 6-.8 9 1.1v12c-3-1.8-6-2.3-9-1z" />
-                  <path d="M21 5.5c-3-1.3-6-.8-9 1.1v12c3-1.8 6-2.3 9-1z" />
+      data-no-reveal
+      aria-labelledby="academics-title"
+      className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24"
+    >
+      <div className="mx-auto w-full max-w-wide px-5 sm:px-6 lg:px-8">
+        {/* ---- editorial header ---- */}
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <Reveal>
+            <span className="type-eyebrow inline-flex items-center gap-2 rounded-full border border-navy/10 bg-cream px-4 py-2 text-indigo shadow-soft">
+              <span className="size-1.5 rounded-full bg-indigo" />
+              Learning Pathways
+            </span>
+            <h2 id="academics-title" className="type-h2 mt-4 text-navy">
+              Learning pathways with room to{" "}
+              <span className="text-indigo">explore</span>,{" "}
+              <span className="text-blue">focus</span> and{" "}
+              <span className="relative inline-block text-coral">
+                lead
+                <svg viewBox="0 0 90 12" preserveAspectRatio="none" className="absolute -bottom-1 left-0 h-[0.22em] w-full text-coral" fill="none" aria-hidden>
+                  <path d="M3 8C25 3 65 3 87 7" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
                 </svg>
               </span>
-              LEARNING PATHWAYS
-            </div>
-
-            <h2 id="academics-title">
-              Learning pathways
-              <br />
-              with room to <span>explore</span>,
-              <br />
-              focus and lead.
+              .
             </h2>
-
-            <div className="academics-heading-line">
-              <span />
-              <i />
-            </div>
-          </div>
-
-          <div className="academics-intro">
-            <p>
-              From early years to senior secondary,
-              <br />
-              each stage has a distinct rhythm,
-              <br />
-              image and academic focus while
-              <br />
-              staying connected to one school
-              <br />
-              journey.
+            <p className="type-lead mt-4 max-w-md text-muted">
+              From early years to senior secondary, each stage has its own rhythm, imagery and academic focus — while staying part of one connected school journey.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="academics-decoration" aria-hidden="true">
-            <svg viewBox="0 0 230 190">
-              <path
-                className="dash-path"
-                d="M12 170c47-24 60-58 59-94-1-34 25-52 57-51 29 2 57-15 77-22"
-              />
-              <path className="cap" d="m134 72 34-18 34 18-34 18z" />
-              <path className="cap" d="M146 79v21c13 9 31 9 44 0V79" />
-              <path className="cap" d="M202 72v29" />
-              <circle cx="202" cy="104" r="3" />
-            </svg>
+          {/* 3D education still-life (no card) */}
+          <div aria-hidden className="relative mx-auto hidden h-56 w-full max-w-sm lg:block">
+            <div className="absolute left-1/2 top-1/2 size-44 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-br from-indigo/10 to-teal/10 blur-2xl" />
+            <FloatingObject amplitude={8} rotate={2} className="absolute left-6 top-8 drop-shadow-xl"><BookStack className="size-20" /></FloatingObject>
+            <FloatingObject amplitude={7} rotate={-2} duration={7} delay={0.3} className="absolute right-10 top-2 drop-shadow-xl"><GradCap className="size-16" /></FloatingObject>
+            <FloatingObject amplitude={6} rotate={2} duration={6.5} delay={0.6} className="absolute bottom-4 right-2 drop-shadow-xl"><Compass className="size-14" /></FloatingObject>
+            <FloatingObject amplitude={9} rotate={-2} duration={5.5} delay={0.9} className="absolute bottom-2 left-16 drop-shadow-xl"><PaperPlane className="size-12" /></FloatingObject>
+            <FloatingObject amplitude={5} rotate={2} duration={8} delay={0.2} className="absolute left-0 top-1/2 drop-shadow-lg"><Plant className="size-12" /></FloatingObject>
+            <FloatingObject amplitude={6} rotate={0} duration={7.5} delay={1.1} className="absolute right-1/3 top-1/2 drop-shadow-lg"><Sphere className="size-9" /></FloatingObject>
           </div>
         </div>
 
-        <div className="academics-grid">
-          {academicStages.map((item) => (
-            <article
-              className={`academic-card ${item.className}`}
-              key={item.stage}>
-              <div className="academic-card-inner">
-                <div className="academic-copy">
-                  <div className="academic-meta">
-                    <span className="academic-icon">{item.icon}</span>
-                    <span className="academic-badge">{item.classes}</span>
+        {/* ---- stage grid (3 x 2) ---- */}
+        <StaggerGroup className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3">
+          {stages.map((s, i) => {
+            const Obj = [BookStack, GradCap, Compass, PaperPlane, Plant][i] ?? Sphere;
+            return (
+              <StaggerItem key={s.key} className="h-full">
+                <article className="group flex h-full flex-row overflow-hidden rounded-[22px] border border-navy/8 bg-white shadow-card transition-shadow hover:shadow-elevated sm:flex-col">
+                  <div className="relative w-32 shrink-0 overflow-hidden sm:aspect-[16/10] sm:w-full">
+                    <Image src={s.image} alt={s.imageAlt} fill sizes="(max-width: 640px) 160px, (max-width: 1024px) 45vw, 300px" className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <div className={cn("absolute inset-0 bg-gradient-to-t opacity-60 mix-blend-multiply", s.gradient)} />
+                    <span className={cn("absolute left-2.5 top-2.5 grid size-8 place-items-center rounded-lg text-white shadow-soft [&_svg]:size-4 bg-gradient-to-br", s.gradient)}>{s.icon}</span>
                   </div>
+                  <div className="relative flex flex-1 flex-col gap-1.5 p-3.5 sm:p-4">
+                    <span className={cn("type-eyebrow w-fit rounded-full px-2.5 py-1", s.bgSoft, s.text)}>{s.classes}</span>
+                    <h3 className="type-card text-navy">{s.label}</h3>
+                    <p className="type-body line-clamp-3 text-muted">{s.copy}</p>
+                    <a href="#grade-explorer" className={cn("group mt-auto inline-flex w-fit items-center gap-1.5 pt-1 text-[13px] font-bold", s.text)}>
+                      Explore {arrow}
+                    </a>
+                    <FloatingObject amplitude={5} rotate={2} duration={6} className="pointer-events-none absolute -top-6 right-3 hidden drop-shadow-lg sm:block">
+                      <Obj className="size-9" />
+                    </FloatingObject>
+                  </div>
+                </article>
+              </StaggerItem>
+            );
+          })}
 
-                  <h3>{item.stage}</h3>
-
-                  <span className="academic-title-line" />
-
-                  <p>{item.description}</p>
-
-                  <a href="#grade-explorer">
-                    Explore
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M5 12h14m-6-6 6 6-6 6" />
-                    </svg>
-                  </a>
-                </div>
-
-                <div className="academic-image" aria-hidden="true" />
-                <div className="academic-image-fade" aria-hidden="true" />
-                <div className="academic-corner" aria-hidden="true" />
+          {/* One School / Every Stage anchor card */}
+          <StaggerItem className="h-full">
+            <article className="relative flex h-full flex-col justify-between overflow-hidden rounded-[22px] bg-navy p-5 text-white shadow-elevated">
+              <div aria-hidden className="pointer-events-none absolute -right-8 -top-8 size-40 rounded-full bg-indigo/30 blur-2xl" />
+              <div className="relative">
+                <span className="grid size-11 place-items-center rounded-xl bg-white/12 text-white [&_svg]:size-6">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6" />
+                  </svg>
+                </span>
+                <h3 className="type-sub mt-4">One School.<br />Every Stage.</h3>
+                <p className="type-body mt-2 text-white/70">A seamless journey with consistent values, care and academic excellence.</p>
               </div>
+              {/* dotted stage-node journey */}
+              <div className="relative mt-5 flex items-center justify-between" aria-hidden>
+                <span className="absolute inset-x-1 top-1/2 h-0 -translate-y-1/2 border-t-2 border-dashed border-white/25" />
+                {stages.map((s) => (
+                  <span key={s.key} className={cn("relative size-3.5 rounded-full ring-4 ring-navy bg-gradient-to-br", s.gradient)} />
+                ))}
+              </div>
+              <a href="#grade-explorer" className="group relative mt-4 inline-flex w-fit items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[13px] font-bold text-navy">
+                Explore stages {arrow}
+              </a>
             </article>
-          ))}
+          </StaggerItem>
+        </StaggerGroup>
 
-          <article className="academic-journey-card">
-            <div className="journey-copy">
-              <span className="journey-school-icon">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M3 21h18" />
-                  <path d="M5 21V10l7-5 7 5v11" />
-                  <path d="M9 21v-6h6v6" />
-                  <path d="M12 5V2" />
-                  <path d="M12 2h5l-2 2 2 2h-5" />
-                </svg>
+        {/* ---- senior secondary streams (merged from standalone section) ---- */}
+        <div className="mt-12">
+          <Reveal>
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+              <span className="type-eyebrow inline-flex items-center gap-2 rounded-full px-3.5 py-2 text-stage-senior bg-stage-senior/12">
+                <span className="size-1.5 rounded-full bg-stage-senior" />
+                Senior Secondary Streams
               </span>
-
-              <h3>
-                One School.
-                <br />
-                <span>Every Stage.</span>
-              </h3>
-
-              <i />
-
-              <p>
-                A seamless journey with
-                <br />
-                consistent values, care and
-                <br />
-                academic excellence.
-              </p>
+              <p className="type-small text-muted">Classes 11–12 · choose a focused academic direction</p>
             </div>
-
-            <div className="journey-map" aria-hidden="true">
-              <svg viewBox="0 0 300 250">
-                <path
-                  className="journey-road"
-                  d="M52 205c37-36 105-14 137-45 31-31-42-50-6-78 24-19 60-6 83-41"
-                />
-
-                <circle className="map-dot dot-one" cx="66" cy="200" r="8" />
-                <circle className="map-dot dot-two" cx="190" cy="159" r="8" />
-                <circle className="map-dot dot-three" cx="181" cy="77" r="8" />
-                <circle className="map-dot dot-four" cx="263" cy="38" r="8" />
-
-                <path className="tree" d="M23 143c11-25 28-25 39 0m-19-12v37" />
-                <path
-                  className="tree"
-                  d="M236 178c12-27 30-27 42 0m-21-13v42"
-                />
-              </svg>
-            </div>
-          </article>
+          </Reveal>
+          <StaggerGroup className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {seniorStreams.map((st) => (
+              <StaggerItem key={st.title}>
+                <article className="h-full rounded-[20px] border border-navy/8 bg-cream p-5 shadow-soft">
+                  <div className="mb-3 h-1 w-10 rounded-full bg-stage-senior" />
+                  <h3 className="type-card text-navy">{st.title}</h3>
+                  <p className="mt-2 text-[13px] font-semibold leading-relaxed text-navy/75">{st.subjects}</p>
+                  <p className="mt-2 text-[12.5px] font-medium leading-relaxed text-muted">{st.direction}</p>
+                </article>
+              </StaggerItem>
+            ))}
+          </StaggerGroup>
         </div>
       </div>
     </section>

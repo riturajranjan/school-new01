@@ -1,379 +1,154 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+import { motion, useReducedMotion } from "motion/react";
+import { stages, type StageKey } from "./stage-data";
+import { FloatingObject } from "../motion/FloatingObject";
+import { Reveal } from "../motion/Reveal";
+import { cn } from "../ui/cn";
 
-const stages = {
-  "pre-primary": {
-    className: "stage-pre-primary",
-    icon: "smile",
-    imageLabel: "Pre-primary children learning through play",
-    age: "Age 3-5 | Nursery-KG",
-    title: "Joyful foundations through play",
-    copy:
-      "Gentle routines, language-rich classrooms and sensory learning help young children feel secure, expressive and ready for school.",
-    highlights: ["Phonics and early numeracy", "Art, music and movement", "Warm transition support"],
-    label: "Pre-Primary",
-  },
-  primary: {
-    className: "stage-primary",
-    icon: "book",
-    imageLabel: "Primary students reading and building a classroom project",
-    age: "Class 1-5 | Foundation Years",
-    title: "Curious minds, confident basics",
-    copy:
-      "Reading fluency, mathematical thinking and project work build strong habits while keeping school joyful and personal.",
-    highlights: ["Concept clarity", "Activity-based projects", "Communication confidence"],
-    label: "Class 1-5",
-  },
-  middle: {
-    className: "stage-middle",
-    icon: "lab",
-    imageLabel: "Middle school students collaborating with science and technology",
-    age: "Class 6-8 | Preparatory Years",
-    title: "Inquiry, collaboration and independence",
-    copy:
-      "Students move from guided learning to deeper investigation with labs, digital work and structured academic mentoring.",
-    highlights: ["STEM exploration", "Research and teamwork", "Leadership habits"],
-    label: "Class 6-8",
-  },
-  secondary: {
-    className: "stage-secondary",
-    icon: "target",
-    imageLabel: "Secondary students learning through focused lab experiments",
-    age: "Class 9-10 | Board Readiness",
-    title: "Focused preparation with balance",
-    copy:
-      "Rigorous CBSE preparation is supported by regular diagnostics, study planning and opportunities beyond the textbook.",
-    highlights: ["Board exam strategy", "Lab-led concepts", "Mentor feedback"],
-    label: "Class 9-10",
-  },
-  senior: {
-    className: "stage-senior",
-    icon: "cap",
-    imageLabel: "Senior secondary students working on future-ready STEM learning",
-    age: "Class 11-12 | Senior Secondary",
-    title: "Future-ready pathways and purpose",
-    copy:
-      "Academic streams, career guidance and advanced projects help students prepare for university, leadership and life.",
-    highlights: ["Stream guidance", "Competitive readiness", "Innovation projects"],
-    label: "Class 11-12",
-  },
-};
-
-type StageKey = keyof typeof stages;
-
-const stageOrder: StageKey[] = ["pre-primary", "primary", "middle", "secondary", "senior"];
-
-function StageIcon({ type }: { type: string }) {
-  if (type === "book") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H20v17H8.5A3.5 3.5 0 0 0 5 22Z" />
-        <path d="M5 5.5V22M8 6h8" />
-      </svg>
-    );
-  }
-
-  if (type === "lab") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M9 3h6M10 3v5l-5 9a3 3 0 0 0 2.6 4.5h8.8A3 3 0 0 0 19 17l-5-9V3" />
-        <path d="M8 15h8" />
-      </svg>
-    );
-  }
-
-  if (type === "target") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <circle cx="12" cy="12" r="8" />
-        <circle cx="12" cy="12" r="3" />
-        <path d="M15 9l4-4M19 5h-4V1" />
-      </svg>
-    );
-  }
-
-  if (type === "cap") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="m3 8 9-5 9 5-9 5Z" />
-        <path d="M7 11v5c3 2 7 2 10 0v-5" />
-      </svg>
-    );
-  }
-
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <circle cx="8.5" cy="9" r="1.2" />
-      <circle cx="15.5" cy="9" r="1.2" />
-      <path d="M8 14c1.8 2 6.2 2 8 0" />
-      <circle cx="12" cy="12" r="9" />
-    </svg>
-  );
-}
-
-function StageSymbol({ stageKey }: { stageKey: StageKey }) {
-  const symbolType =
-    stageKey === "primary"
-      ? "book"
-      : stageKey === "middle"
-        ? "lab"
-        : stageKey === "secondary"
-          ? "target"
-          : stageKey === "senior"
-            ? "bulb"
-            : "blocks";
-
-  if (symbolType === "bulb") {
-    return (
-      <svg viewBox="0 0 64 64" aria-hidden="true">
-        <path d="M24 49h16M26 56h12" />
-        <path d="M22 28a10 10 0 1 1 20 0c0 7-6 9-6 16h-8c0-7-6-9-6-16Z" />
-        <path d="M32 7v6M48 16l-4 4M16 16l4 4" />
-      </svg>
-    );
-  }
-
-  if (symbolType === "target") {
-    return (
-      <svg viewBox="0 0 64 64" aria-hidden="true">
-        <circle cx="32" cy="32" r="18" />
-        <circle cx="32" cy="32" r="8" />
-        <path d="M38 26 51 13M51 13h-9M51 13v9" />
-      </svg>
-    );
-  }
-
-  if (symbolType === "lab") {
-    return (
-      <svg viewBox="0 0 64 64" aria-hidden="true">
-        <path d="M25 10h14M28 10v14L16 46a6 6 0 0 0 5 9h22a6 6 0 0 0 5-9L36 24V10" />
-        <path d="M22 42h20" />
-      </svg>
-    );
-  }
-
-  if (symbolType === "book") {
-    return (
-      <svg viewBox="0 0 64 64" aria-hidden="true">
-        <path d="M14 16h16a8 8 0 0 1 8 8v28a8 8 0 0 0-8-8H14Z" />
-        <path d="M50 16H38a8 8 0 0 0-8 8v28a8 8 0 0 1 8-8h12Z" />
-      </svg>
-    );
-  }
-
-  return (
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <rect x="10" y="34" width="16" height="16" rx="4" />
-      <rect x="28" y="22" width="16" height="28" rx="4" />
-      <rect x="46" y="32" width="10" height="18" rx="3" />
-      <path d="M36 22 28 34h16Z" />
-    </svg>
-  );
-}
-
-function HighlightIcon({ stageKey, index }: { stageKey: StageKey; index: number }) {
-  const icon =
-    stageKey === "senior"
-      ? ["path", "target", "bulb"][index]
-      : stageKey === "secondary"
-        ? ["target", "lab", "chat"][index]
-        : stageKey === "middle"
-          ? ["lab", "team", "spark"][index]
-          : stageKey === "primary"
-            ? ["book", "blocks", "chat"][index]
-            : ["abc", "music", "heart"][index];
-
-  if (icon === "path") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M5 19c4 0 4-14 8-14h6" />
-        <path d="m16 2 3 3-3 3" />
-      </svg>
-    );
-  }
-
-  if (icon === "bulb" || icon === "spark") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M9 18h6M10 22h4" />
-        <path d="M8 10a4 4 0 1 1 8 0c0 3-2 4-2 7h-4c0-3-2-4-2-7Z" />
-      </svg>
-    );
-  }
-
-  if (icon === "target") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <circle cx="12" cy="12" r="7" />
-        <circle cx="12" cy="12" r="2" />
-      </svg>
-    );
-  }
-
-  if (icon === "lab") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M9 3h6M10 3v5l-5 9a3 3 0 0 0 2.6 4.5h8.8A3 3 0 0 0 19 17l-5-9V3" />
-      </svg>
-    );
-  }
-
-  if (icon === "book") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M5 5h8a4 4 0 0 1 4 4v10a4 4 0 0 0-4-4H5Z" />
-      </svg>
-    );
-  }
-
-  if (icon === "team" || icon === "chat") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M5 7h14v9H8l-3 3Z" />
-      </svg>
-    );
-  }
-
-  if (icon === "blocks") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <rect x="4" y="12" width="7" height="7" rx="2" />
-        <rect x="13" y="7" width="7" height="12" rx="2" />
-      </svg>
-    );
-  }
-
-  if (icon === "music") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M9 18a3 3 0 1 1-2-2.83V6l10-2v10" />
-        <path d="M17 16a3 3 0 1 1-2-2.83" />
-      </svg>
-    );
-  }
-
-  if (icon === "heart") {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 20s-7-4.3-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.7-7 10-7 10Z" />
-      </svg>
-    );
-  }
-
-  return <span aria-hidden="true">ABC</span>;
-}
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export default function GradeExplorer() {
-  const [activeStage, setActiveStage] = useState<StageKey>("pre-primary");
-  const stage = stages[activeStage];
+  const [activeKey, setActiveKey] = useState<StageKey>("pre");
+  const reduce = useReducedMotion();
+  const active = stages.find((s) => s.key === activeKey) ?? stages[0];
+
+  const swap = (extra?: object) =>
+    reduce
+      ? {}
+      : {
+          initial: { opacity: 0, y: 10, ...extra },
+          animate: { opacity: 1, y: 0, scale: 1 },
+          transition: { duration: 0.4, ease: EASE },
+        };
 
   return (
     <section
-      className={`grade-explorer ${stage.className}`}
       id="grade-explorer"
+      data-no-reveal
       aria-labelledby="grade-title"
-      data-grade-explorer
+      className="relative overflow-hidden bg-cream py-16 sm:py-20 lg:py-24"
     >
-      <div className="stage-shape stage-shape-a" aria-hidden="true"></div>
-      <div className="stage-shape stage-shape-b" aria-hidden="true"></div>
-      <div className="grade-desk-decor" aria-hidden="true">
-        <span className="decor-book decor-book-one"></span>
-        <span className="decor-book decor-book-two"></span>
-        <span className="decor-plant">
-          <i></i>
-        </span>
-        <span className="decor-sphere"></span>
-      </div>
-
-      <div className="grade-inner">
-        <div className="section-kicker">FIND YOUR LEARNING STAGE</div>
-        <div className="grade-layout">
-          <div className="grade-left">
-            <h2 id="grade-title">
-              A thoughtful
-              <br />
-              path from first
-              <br />
-              steps to <em>future</em>
-              <br />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-20 top-10 size-64 rounded-full bg-stage-primary/8 blur-3xl"
+      />
+      <div className="mx-auto grid w-full max-w-wide grid-cols-1 gap-8 px-5 sm:px-6 lg:grid-cols-[30fr_38fr_30fr] lg:items-center lg:gap-6 lg:px-8">
+        {/* LEFT — headline + selector */}
+        <div className="flex flex-col gap-5 lg:gap-6">
+          <Reveal>
+            <span className="type-eyebrow inline-flex items-center gap-2 rounded-full border border-navy/10 bg-white px-4 py-2 text-indigo shadow-soft">
+              <span className="size-1.5 rounded-full bg-indigo" />
+              Find your learning stage
+            </span>
+            <h2 id="grade-title" className="type-h2 mt-4 text-navy">
+              A thoughtful path from first steps to{" "}
+              <span className="relative inline-block italic text-indigo">
+                future
+                <svg viewBox="0 0 120 12" preserveAspectRatio="none" className="absolute -bottom-1 left-0 h-[0.22em] w-full text-orange" fill="none" aria-hidden>
+                  <path d="M3 8C35 3 85 3 117 7" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
+                </svg>
+              </span>{" "}
               choices.
             </h2>
-            <p className="grade-intro">
-              Choose a stage to see how learning, support and independence evolve across the school
-              years.
+            <p className="type-body mt-3 max-w-sm text-muted">
+              Choose a stage to see how learning, support and independence evolve across the school years.
             </p>
+          </Reveal>
 
-            <div className="stage-tabs" role="tablist" aria-label="Learning stages">
-              {stageOrder.map((stageKey) => {
-                const isActive = stageKey === activeStage;
-
-                return (
-                  <button
-                    className={`stage-tab${isActive ? " is-active" : ""}`}
-                    type="button"
-                    role="tab"
-                    aria-selected={isActive}
-                    data-stage={stageKey}
-                    key={stageKey}
-                    onClick={() => setActiveStage(stageKey)}
+          <div role="tablist" aria-label="Learning stages" className="flex snap-x gap-2 overflow-x-auto pb-1 lg:flex-col lg:gap-2.5 lg:overflow-visible no-scrollbar">
+            {stages.map((s) => {
+              const isActive = s.key === activeKey;
+              return (
+                <button
+                  key={s.key}
+                  role="tab"
+                  aria-selected={isActive}
+                  onClick={() => setActiveKey(s.key)}
+                  className={cn(
+                    "group flex shrink-0 snap-start items-center gap-3 rounded-2xl border p-2.5 text-left transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo lg:w-full",
+                    isActive
+                      ? cn("border-transparent text-white shadow-card bg-gradient-to-br", s.gradient)
+                      : "border-navy/8 bg-white text-navy shadow-soft hover:-translate-y-0.5 hover:shadow-card",
+                  )}
+                >
+                  <span
+                    className={cn(
+                      "grid size-10 shrink-0 place-items-center rounded-xl [&_svg]:size-5",
+                      isActive ? "bg-white/20 text-white" : cn(s.bgSoft, s.text),
+                    )}
                   >
-                    <span className="stage-tab-icon">
-                      <StageIcon type={stages[stageKey].icon} />
-                    </span>
-                    <span className="stage-tab-copy">
-                      <strong>{stages[stageKey].label}</strong>
-                      {stageKey === "pre-primary" && <small>Age 3-5 | Nursery-KG</small>}
-                    </span>
-                    <span className="stage-tab-arrow" aria-hidden="true">
-                      <svg viewBox="0 0 24 24">
-                        <path d="M5 12h14m-6-6 6 6-6 6" />
-                      </svg>
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          <article className="stage-panel stage-switching" data-stage-panel key={activeStage}>
-            <div className="stage-image-wrap">
-              <div className="stage-image" role="img" aria-label={stage.imageLabel}></div>
-              <div className="stage-photo-icon" aria-hidden="true">
-                <StageIcon type="cap" />
-              </div>
-              <div className="stage-orbit" aria-hidden="true">
-                <StageSymbol stageKey={activeStage} />
-              </div>
-            </div>
-
-            <div className="stage-content">
-              <span className="stage-age" data-stage-age>
-                {stage.age}
-              </span>
-              <h3 data-stage-title>{stage.title}</h3>
-              <p data-stage-copy>{stage.copy}</p>
-
-              <div className="stage-highlights" data-stage-highlights>
-                {stage.highlights.map((highlight, index) => (
-                  <span key={highlight}>
-                    <i aria-hidden="true">
-                      <HighlightIcon stageKey={activeStage} index={index} />
-                    </i>
-                    {highlight}
+                    {s.icon}
                   </span>
-                ))}
-              </div>
-
-              <a className="stage-cta" href="#academics">
-                Explore Stage
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M5 12h14m-6-6 6 6-6 6" />
-                </svg>
-              </a>
-            </div>
-          </article>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-[13.5px] font-extrabold leading-tight">{s.label}</span>
+                    <span className={cn("block text-[11.5px] font-semibold leading-tight", isActive ? "text-white/80" : "text-muted")}>
+                      {s.classes}
+                    </span>
+                  </span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className={cn("size-4 transition-transform group-hover:translate-x-0.5", isActive ? "text-white" : "text-navy/30")} aria-hidden>
+                    <path d="M9 6l6 6-6 6" />
+                  </svg>
+                </button>
+              );
+            })}
+          </div>
         </div>
+
+        {/* CENTER — active stage image */}
+        <div className="relative mx-auto w-full max-w-[420px] lg:max-w-none">
+          <div className="relative aspect-[4/4.6]">
+            <div className={cn("absolute inset-0 translate-x-3 translate-y-4 rounded-[36px_36px_100px_36px] bg-gradient-to-br opacity-90", active.gradient)} />
+            <motion.div key={active.key} {...swap({ scale: 1.03 })} className="absolute inset-0 overflow-hidden rounded-[34px_34px_96px_34px] shadow-elevated ring-[5px] ring-white">
+              <Image
+                src={active.image}
+                alt={active.imageAlt}
+                fill
+                sizes="(max-width: 1024px) 90vw, 460px"
+                className="object-cover object-center"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/25 to-transparent" />
+            </motion.div>
+            {/* floating stage icon */}
+            <FloatingObject amplitude={7} rotate={2} className="absolute -right-3 -top-3 z-10">
+              <span className={cn("grid size-14 place-items-center rounded-2xl text-white shadow-card [&_svg]:size-7 bg-gradient-to-br", active.gradient)}>
+                {active.icon}
+              </span>
+            </FloatingObject>
+          </div>
+        </div>
+
+        {/* RIGHT — detail panel */}
+        <motion.div key={`${active.key}-detail`} {...swap()} className="flex flex-col gap-4">
+          <span className={cn("type-eyebrow inline-flex w-fit items-center gap-2 rounded-full px-3.5 py-2", active.bgSoft, active.text)}>
+            {active.age} · {active.classes}
+          </span>
+          <h3 className="type-sub text-navy">{active.title}</h3>
+          <p className="type-body text-muted">{active.copy}</p>
+          <ul className="flex list-none flex-col gap-2">
+            {active.highlights.map((h) => (
+              <li key={h} className="flex items-center gap-2.5 text-[14px] font-bold text-navy/85">
+                <span className={cn("grid size-6 shrink-0 place-items-center rounded-full text-white [&_svg]:size-3.5 bg-gradient-to-br", active.gradient)}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <path d="M5 12.5 10 17l9-10" />
+                  </svg>
+                </span>
+                {h}
+              </li>
+            ))}
+          </ul>
+          <a
+            href="#academics"
+            className={cn("group mt-1 inline-flex w-fit items-center gap-2 rounded-full px-5 py-3 text-[14px] font-bold text-white shadow-card transition hover:-translate-y-0.5 hover:shadow-elevated bg-gradient-to-br", active.gradient)}
+          >
+            Explore Stage
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden>
+              <path d="M5 12h14m-6-6 6 6-6 6" />
+            </svg>
+          </a>
+        </motion.div>
       </div>
     </section>
   );
