@@ -71,18 +71,22 @@ export default function Footer() {
                 <span>S</span>
               </span>
               <span>
-                <strong>Sarvottam International School</strong>
-                <small>Classes 0-12</small>
+                <strong>International School</strong>
               </span>
             </a>
-            <h2 id="footer-title">A school where curiosity grows into capability.</h2>
+            <h2 id="footer-title">
+              A school where curiosity grows into capability.
+            </h2>
             <p>
-              Premium CBSE-aligned learning for early years through senior secondary, with
-              strong academics, expressive student life and a safe, future-ready campus.
+              Premium CBSE-aligned learning for early years through senior
+              secondary, with strong academics, expressive student life and a
+              safe, future-ready campus.
             </p>
           </div>
 
-          <div className="footer-map-card" aria-label="Google Maps preview area">
+          <div
+            className="footer-map-card"
+            aria-label="Google Maps preview area">
             <div className="footer-map-visual" aria-hidden="true">
               <span className="map-road map-road-one"></span>
               <span className="map-road map-road-two"></span>
@@ -100,14 +104,20 @@ export default function Footer() {
           <nav className="footer-link-panel" aria-label="Footer quick links">
             <h3>Quick Links</h3>
             {quickLinks.map((link) => (
-              <a href={link.href} key={link.label}>{link.label}</a>
+              <a href={link.href} key={link.label}>
+                {link.label}
+              </a>
             ))}
           </nav>
 
-          <nav className="footer-link-panel parent-panel" aria-label="Parent resources">
+          <nav
+            className="footer-link-panel parent-panel"
+            aria-label="Parent resources">
             <h3>Parent Resources</h3>
             {parentResources.map((link) => (
-              <a href={link.href} key={link.label}>{link.label}</a>
+              <a href={link.href} key={link.label}>
+                {link.label}
+              </a>
             ))}
           </nav>
 
@@ -123,7 +133,9 @@ export default function Footer() {
             </p>
             <p>
               <span>Email</span>
-              <a href="mailto:admissions@sarvottamschool.edu">admissions@sarvottamschool.edu</a>
+              <a href="#">
+                admissions@school.edu
+              </a>
             </p>
             <p>
               <span>WhatsApp</span>
@@ -137,18 +149,25 @@ export default function Footer() {
               <strong>Affiliation &amp; Mandatory Disclosure</strong>
             </div>
             <p>
-              View affiliation details, statutory certificates, academic calendar and public
-              disclosure documents.
+              View affiliation details, statutory certificates, academic
+              calendar and public disclosure documents.
             </p>
             <a href="#mandatory-disclosure">View Disclosure</a>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <div className="footer-wordmark" aria-hidden="true">SARVOTTAM</div>
+          <div className="footer-wordmark" aria-hidden="true">
+            SCHOOL
+          </div>
           <div className="footer-socials" aria-label="Social links">
             {socialLinks.map((link) => (
-              <a href={link.href} aria-label={link.label} target="_blank" rel="noopener noreferrer" key={link.label}>
+              <a
+                href={link.href}
+                aria-label={link.label}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={link.label}>
                 {link.icon}
               </a>
             ))}

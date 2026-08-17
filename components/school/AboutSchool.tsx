@@ -22,10 +22,13 @@ export default function AboutSchool() {
 
         <div className="about-copy">
           <div className="section-kicker">ABOUT SCHOOL</div>
-          <h2 id="about-title">A premium Indian school shaped around curiosity and character.</h2>
+          <h2 id="about-title">
+            A premium Indian school shaped around curiosity and character.
+          </h2>
           <p>
-            Sarvottam International School brings together strong academics, thoughtful pastoral care
-            and future-ready opportunities in a campus designed for confident, joyful learning.
+            International School brings together strong academics, thoughtful
+            pastoral care and future-ready opportunities in a campus designed
+            for confident, joyful learning.
           </p>
 
           <div className="about-values">
@@ -38,7 +41,10 @@ export default function AboutSchool() {
               </div>
               <div>
                 <h3>Our Vision</h3>
-                <p>To inspire compassionate learners who think deeply, act responsibly and grow with purpose.</p>
+                <p>
+                  To inspire compassionate learners who think deeply, act
+                  responsibly and grow with purpose.
+                </p>
               </div>
             </article>
 
@@ -51,7 +57,10 @@ export default function AboutSchool() {
               </div>
               <div>
                 <h3>Our Mission</h3>
-                <p>To create rigorous, caring classrooms where every child discovers strengths and builds confidence.</p>
+                <p>
+                  To create rigorous, caring classrooms where every child
+                  discovers strengths and builds confidence.
+                </p>
               </div>
             </article>
           </div>

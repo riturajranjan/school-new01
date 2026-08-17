@@ -58,7 +58,9 @@ export default function Header() {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className={`site-header${isCompact ? " is-compact" : ""}${isMenuOpen ? " menu-open" : ""}`} data-header>
+    <header
+      className={`site-header${isCompact ? " is-compact" : ""}${isMenuOpen ? " menu-open" : ""}`}
+      data-header>
       <div className="utility-bar">
         <div className="utility-inner">
           <span>CBSE Affiliation</span>
@@ -69,13 +71,16 @@ export default function Header() {
       </div>
 
       <nav className="navbar" aria-label="Primary navigation">
-        <a className="brand" href="#top" aria-label="School home" onClick={closeMenu}>
+        <a
+          className="brand"
+          href="#top"
+          aria-label="School home"
+          onClick={closeMenu}>
           <span className="brand-mark" aria-hidden="true">
             <span>S</span>
           </span>
           <span>
-            <strong>Sarvottam International School</strong>
-            <small>Classes 0-12</small>
+            <strong>International School</strong>
           </span>
         </a>
 
@@ -85,8 +90,7 @@ export default function Header() {
           aria-label={isMenuOpen ? "Close navigation" : "Open navigation"}
           aria-expanded={isMenuOpen}
           aria-controls="primary-navigation"
-          onClick={() => setIsMenuOpen((current) => !current)}
-        >
+          onClick={() => setIsMenuOpen((current) => !current)}>
           <span></span>
           <span></span>
           <span></span>
@@ -97,10 +101,11 @@ export default function Header() {
             <a
               href={item.href}
               className={activeSection === item.sectionId ? "is-active" : ""}
-              aria-current={activeSection === item.sectionId ? "page" : undefined}
+              aria-current={
+                activeSection === item.sectionId ? "page" : undefined
+              }
               onClick={closeMenu}
-              key={item.sectionId}
-            >
+              key={item.sectionId}>
               {item.label}
             </a>
           ))}
@@ -112,7 +117,9 @@ export default function Header() {
               <path d="m21 21-4.3-4.3m1.3-5.2a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z" />
             </svg>
           </button>
-          <EnquiryTrigger className="apply-button enquiry-nav-trigger">ENQUIRE NOW</EnquiryTrigger>
+          <EnquiryTrigger className="apply-button enquiry-nav-trigger">
+            ENQUIRE NOW
+          </EnquiryTrigger>
         </div>
       </nav>
     </header>
