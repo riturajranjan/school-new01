@@ -74,7 +74,7 @@ export function About() {
             <div className="absolute inset-0 bg-gradient-to-t from-dark/50 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 glass-dark rounded-2xl p-5">
               <p className="font-display text-lg text-white">
-                "A school is a place where the future is rehearsed."
+                &quot;A school is a place where the future is rehearsed.&quot;
               </p>
               <p className="mt-1 text-sm text-white/60">
                 — Dr. R. Marco, Founder
@@ -121,8 +121,8 @@ export function About() {
                   </div>
                 </div>
                 <p className="mt-4 text-sm leading-relaxed text-foreground/80">
-                  "We do not teach children what to think. We teach them how to
-                  think — and give them the courage to act on it."
+                  &quot;We do not teach children what to think. We teach them how to
+                  think — and give them the courage to act on it.&quot;
                 </p>
               </div>
             </Reveal>
