@@ -1110,7 +1110,11 @@ export function ContactSection() {
             {[
               { icon: MapPin, label: "Visit Us", value: "Patna, Bihar, 94086" },
               { icon: Phone, label: "Call Us", value: "+91 1234567890" },
-              { icon: Mail, label: "Email Us", value: "hello@a.school" },
+              {
+                icon: Mail,
+                label: "Email Us",
+                value: "hello@sforschool.school",
+              },
               {
                 icon: Clock,
                 label: "Open Hours",
