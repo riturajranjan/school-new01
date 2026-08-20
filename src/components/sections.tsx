@@ -29,7 +29,6 @@ import {
   blogPosts,
 } from "@/data/site";
 
-/* ---------- Parallax floating shapes ---------- */
 function FloatingShapes({
   variant = "warm",
 }: {
