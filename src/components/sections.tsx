@@ -78,7 +78,7 @@ export function Hero1() {
       <div className="container-x relative grid items-center gap-12 lg:grid-cols-2">
         <div className="animate-fade-up">
           <span className="eyebrow">
-            <Sparkles className="h-4 w-4" /> Welcome to School
+            <Sparkles className="h-4 w-4" /> Welcome to SforSchool
           </span>
           <h1 className="mt-5 text-5xl font-bold leading-[1.1] text-ink-900 sm:text-6xl lg:text-7xl">
             Where Little <span className="shimmer-text">Minds</span> Bloom Big
