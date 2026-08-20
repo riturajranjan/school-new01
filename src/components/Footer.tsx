@@ -44,15 +44,15 @@ export function Footer() {
           <ul className="space-y-4 text-sm">
             <li className="flex items-start gap-3">
               <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-brand-400" />
-              <span>123 Apple Tree Lane, Sunnyvale, CA 94086</span>
+              <span>123 Patna, Bihar 94086</span>
             </li>
             <li className="flex items-center gap-3">
               <Phone className="h-5 w-5 shrink-0 text-brand-400" />
-              <a href="tel:+18005551234" className="hover:text-brand-400">+1 (800) 555-1234</a>
+              <a href="#" className="hover:text-brand-400">+91 1234567890</a>
             </li>
             <li className="flex items-center gap-3">
               <Mail className="h-5 w-5 shrink-0 text-brand-400" />
-              <a href="mailto:hello@aforapple.school" className="hover:text-brand-400">hello@aforapple.school</a>
+              <a href="#" className="hover:text-brand-400">hello@a.school</a>
             </li>
             <li className="flex items-start gap-3">
               <Clock className="mt-0.5 h-5 w-5 shrink-0 text-brand-400" />
@@ -79,7 +79,7 @@ export function Footer() {
 
       <div className="border-t border-ink-800">
         <div className="container-x flex flex-col items-center justify-between gap-3 py-6 text-sm text-ink-500 sm:flex-row">
-          <p>© 2025 AforApple School. All rights reserved.</p>
+          <p>© 2026 A School. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-brand-400">Privacy Policy</a>
             <a href="#" className="hover:text-brand-400">Terms of Service</a>

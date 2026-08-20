@@ -11,7 +11,7 @@ export function PageBanner({ title, crumb }: { title: string; crumb: string }) {
       <div className="pointer-events-none absolute left-1/4 bottom-4 h-8 w-8 animate-float rounded-full bg-gradient-to-br from-berry-300 to-berry-500 opacity-60 shadow-3d" />
       <div className="container-x relative text-center perspective">
         <span className="inline-flex items-center gap-2 rounded-full bg-white/60 px-4 py-1.5 text-sm font-semibold uppercase tracking-wider text-brand-600 shadow-card backdrop-blur">
-          <Sparkles className="h-4 w-4" /> AforApple School
+          <Sparkles className="h-4 w-4" /> A School
         </span>
         <h1 className="mt-5 section-title text-balance" style={{ transform: 'translateZ(30px)' }}>{title}</h1>
         <nav className="mt-4 flex items-center justify-center gap-2 text-sm font-semibold text-ink-500">

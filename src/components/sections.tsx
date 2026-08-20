@@ -53,7 +53,7 @@ export function Hero1() {
       <div className="container-x relative grid items-center gap-12 lg:grid-cols-2">
         <div className="animate-fade-up">
           <span className="eyebrow">
-            <Sparkles className="h-4 w-4" /> Welcome to AforApple
+            <Sparkles className="h-4 w-4" /> Welcome to School
           </span>
           <h1 className="mt-5 text-5xl font-bold leading-[1.1] text-ink-900 sm:text-6xl lg:text-7xl">
             Where Little <span className="shimmer-text">Minds</span> Bloom Big
@@ -250,7 +250,7 @@ export function Hero4() {
       <div className="container-x relative grid items-stretch gap-0 lg:grid-cols-12">
         <div className="flex items-center py-16 lg:col-span-5 lg:py-24">
           <div className="animate-fade-up">
-            <span className="eyebrow"><Sparkles className="h-4 w-4" /> AforApple School</span>
+            <span className="eyebrow"><Sparkles className="h-4 w-4" /> School</span>
             <h1 className="mt-5 text-5xl font-bold leading-[1.1] text-ink-900 sm:text-6xl">
               Every Child Is a <span className="shimmer-text">Star</span>
             </h1>
@@ -315,7 +315,7 @@ export function AboutSection() {
           <span className="eyebrow">About Us</span>
           <h2 className="mt-5 section-title">A Nurturing Home for Curious Minds</h2>
           <p className="mt-5 text-lg leading-relaxed text-ink-600">
-            At AforApple, we believe every child deserves a joyful start. For over 15 years, our caring teachers and play-based approach have helped children grow into confident, creative and kind learners.
+            At A School, we believe every child deserves a joyful start. For over 15 years, our caring teachers and play-based approach have helped children grow into confident, creative and kind learners.
           </p>
           <div className="mt-8 space-y-4">
             {[
@@ -613,7 +613,7 @@ export function GallerySection({ limit }: { limit?: number }) {
         <div className="mx-auto max-w-2xl text-center">
           <span className="eyebrow">Our Gallery</span>
           <h2 className="mt-5 section-title">Moments of Joy & Learning</h2>
-          <p className="mt-4 text-lg text-ink-600">A peek into the everyday magic at AforApple.</p>
+          <p className="mt-4 text-lg text-ink-600">A peek into the everyday magic at A.</p>
         </div>
         <div className="mt-12 grid auto-rows-[200px] grid-cols-2 gap-4 lg:grid-cols-4">
           {items.map((g, i) => (
@@ -814,9 +814,9 @@ export function ContactSection() {
           </p>
           <div className="mt-8 space-y-5">
             {[
-              { icon: MapPin, label: 'Visit Us', value: '123 Apple Tree Lane, Sunnyvale, CA 94086' },
-              { icon: Phone, label: 'Call Us', value: '+1 (800) 555-1234' },
-              { icon: Mail, label: 'Email Us', value: 'hello@aforapple.school' },
+              { icon: MapPin, label: 'Visit Us', value: 'Patna, Bihar, 94086' },
+              { icon: Phone, label: 'Call Us', value: '+91 1234567890' },
+              { icon: Mail, label: 'Email Us', value: 'hello@a.school' },
               { icon: Clock, label: 'Open Hours', value: 'Mon – Fri: 7:30 AM – 6:00 PM' },
             ].map((c, i) => (
               <div key={c.label} className="group flex items-start gap-4 transition-transform duration-300 hover:translate-x-2" style={{ transitionDelay: `${i * 50}ms` }}>

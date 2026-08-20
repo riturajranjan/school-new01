@@ -168,7 +168,7 @@ export const testimonials = [
   },
   {
     quote:
-      "From music to mini science, every day is an adventure. AforApple truly makes learning feel like magic.",
+      "From music to mini science, every day is an adventure. A School truly makes learning feel like magic.",
     name: 'Priya Sharma',
     role: "Parent of Anaya, age 3",
     image: 'https://images.pexels.com/photos/18830131/pexels-photo-18830131.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
@@ -188,7 +188,7 @@ export const pricingPlans = [
     name: 'Full Day',
     price: 490,
     period: '/month',
-    desc: 'Our most popular plan with the full AforApple experience.',
+    desc: 'Our most popular plan with the full A School experience.',
     features: ['8:00 AM – 4:00 PM', '5 days a week', 'All meals included', 'Two specialist classes', 'Parent app access'],
     highlight: true,
   },

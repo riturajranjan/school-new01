@@ -28,11 +28,11 @@ export function Header() {
       <div className="hidden bg-ink-900 text-ink-100 lg:block">
         <div className="container-x flex items-center justify-between py-2.5 text-sm">
           <div className="flex items-center gap-6">
-            <a href="tel:+18005551234" className="flex items-center gap-2 transition-colors hover:text-brand-300">
-              <Phone className="h-4 w-4 text-brand-400" /> +1 (800) 555-1234
+            <a href="tel:+911234567890" className="flex items-center gap-2 transition-colors hover:text-brand-300">
+              <Phone className="h-4 w-4 text-brand-400" /> +91 1234567890
             </a>
-            <a href="mailto:hello@aforapple.school" className="flex items-center gap-2 transition-colors hover:text-brand-300">
-              <Mail className="h-4 w-4 text-brand-400" /> hello@aforapple.school
+            <a href="mailto:hello@novyratech.in" className="flex items-center gap-2 transition-colors hover:text-brand-300">
+              <Mail className="h-4 w-4 text-brand-400" /> hello@a.school
             </a>
             <span className="flex items-center gap-2">
               <Clock className="h-4 w-4 text-brand-400" /> Mon – Fri: 7:30 AM – 6:00 PM
